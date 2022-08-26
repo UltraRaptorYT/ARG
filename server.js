@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "public", "error.html"));
+  res.sendFile(path.resolve(__dirname, "client", "public", "404.html"));
 });
 
 server.listen(PORT, () => {
