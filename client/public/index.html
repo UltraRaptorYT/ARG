@@ -16,7 +16,15 @@
     <button id="logOut">Sign Out with Google</button>
     <button id="sub">-</button>
     <button id="add">+</button>
-    <script src="../src/firebase.js"></script>
+    <button id="textSpeech">speech test</button>
+    <button id="mute" data-mute="true">Mute</button>
+    <select id="voices">
+      <option value="" disabled selected>Choose Voice</option>
+    </select>
+    <br />
+    <br />
+    <textarea id="text" cols="30" rows="10"></textarea>
+    <!-- <script src="./src/firebase.js"></script> -->
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
       import {
@@ -155,6 +163,40 @@
           console.log(dataRowValue.data());
         }
       };
+      textSpeech.addEventListener("click", () => {
+        playText(text.value || "I love you");
+      });
+      const utterance = new SpeechSynthesisUtterance();
+      const synth = window.speechSynthesis;
+      const playText = (text, voice) => {
+        utterance.text = text;
+        utterance.rate = 1;
+        utterance.voice =
+          synth.getVoices()[voices.value == undefined ? 0 : voices.value];
+        console.log(voices.value);
+        synth.speak(utterance);
+        synth.getVoices().forEach((v, i) => {
+          voices.innerHTML += `<option value="${i}">${v.name}</option>`;
+        });
+
+        //utterance.voice = voice || synth.getVoices()[1];
+        //synth.speak(utterance);
+      };
+      utterance.addEventListener("end", (e) => {
+        console.log("Done Speaking");
+      });
+      utterance.addEventListener("error", (e) => {
+        console.log("Something went wrong");
+      });
+      mute.addEventListener("click", () => {
+        if (mute.dataset.mute === "true") {
+          utterance.volume = 0;
+          mute.dataset.mute = "false";
+        } else {
+          utterance.volume = 100;
+          mute.dataset.mute = "true";
+        }
+      });
     </script>
   </body>
 </html>
