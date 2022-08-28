@@ -13,7 +13,10 @@
   </head>
   <body>
     <button id="login">Log in with Google</button>
-    <button class="hide" id="logOut">Sign Out with Google</button>
+    <button id="logOut">Sign Out with Google</button>
+    <button id="sub">-</button>
+    <button id="add">+</button>
+    <script src="../src/firebase.js"></script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
       import {
@@ -48,6 +51,13 @@
       const auth = getAuth(app);
       const provider = new GoogleAuthProvider(app);
       const firestore = getFirestore();
+      // Check if account is already login
+      if (localStorage.getItem("uid") && localStorage.getItem("userObj")) {
+        login.classList.add("hide");
+      } else {
+        logOut.classList.add("hide");
+      }
+
       login.addEventListener("click", async (e) => {
         // sign in with popup tab
         signInWithPopup(auth, provider)
@@ -74,6 +84,7 @@
               dataRowValue = await getDoc(dataRow);
             }
             console.log(dataRowValue.data());
+            localStorage.setItem("uid", user.uid);
             localStorage.setItem(
               "userObj",
               JSON.stringify(dataRowValue.data())
@@ -106,6 +117,44 @@
             // An error happened.
           });
       });
+      sub.addEventListener("click", (e) => {
+        subProgress();
+      });
+      add.addEventListener("click", (e) => {
+        addProgress();
+      });
+      const addProgress = async () => {
+        const dataRow = doc(
+          firestore,
+          `progress/${localStorage.getItem("uid")}`
+        );
+        var dataRowValue = await getDoc(dataRow);
+        if (dataRowValue.exists()) {
+          var data = JSON.parse(JSON.stringify(dataRowValue.data()));
+          if (data.progress + 1 <= 10) {
+            data.progress++;
+          }
+          await setDoc(dataRow, data, { merge: true });
+          dataRowValue = await getDoc(dataRow);
+          console.log(dataRowValue.data());
+        }
+      };
+      const subProgress = async () => {
+        const dataRow = doc(
+          firestore,
+          `progress/${localStorage.getItem("uid")}`
+        );
+        var dataRowValue = await getDoc(dataRow);
+        if (dataRowValue.exists()) {
+          var data = JSON.parse(JSON.stringify(dataRowValue.data()));
+          if (data.progress - 1 > 0) {
+            data.progress--;
+          }
+          await setDoc(dataRow, data, { merge: true });
+          dataRowValue = await getDoc(dataRow);
+          console.log(dataRowValue.data());
+        }
+      };
     </script>
   </body>
 </html>
