@@ -20,19 +20,28 @@
             crossorigin="anonymous"
             defer
         ></script>
+        <script src="../public/src/animation.js" defer></script>
     </head>
     <body>
-        <div id="chatbot">
-            <div class="bot">
-                <div class="bot-face">
-                    <div class="eye" id="left-eye"></div>
-                    <div class="eye" id="right-eye"></div>
-                    <div class="mouth" id="left-mouth"></div>
-                    <div class="mouth" id="right-mouth"></div>
+        <div class="pause" id="chatbot">
+            <div class="bot pause">
+                <div class="bot-acces">
+                    <div class="hat pause">
+                        <div>
+                            <div class="tophat" id="bottom"></div>
+                            <div class="tophat" id="top"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bot-head">
-                    <div class="ear" id="left-ear"></div>
-                    <div class="ear" id="right-ear"></div>
+                <div class="bot-face pause">
+                    <div class="eye pause" id="left-eye"></div>
+                    <div class="eye pause" id="right-eye"></div>
+                    <div class="mouth pause" id="left-mouth"></div>
+                    <div class="mouth pause" id="right-mouth"></div>
+                </div>
+                <div class="bot-head pause">
+                    <div class="ear pause" id="left-ear"></div>
+                    <div class="ear pause" id="right-ear"></div>
                 </div>
                 <svg
                     style="visibility: hidden; position: absolute"
@@ -62,8 +71,67 @@
                         </filter>
                     </defs>
                 </svg>
-                <div class="bot-body"></div>
-                <div class="bot-foot"></div>
+                <div class="bot-body pause">
+                    <div class="jacket-button pause" id="body-detail3"></div>
+                    <div class="jacket-button pause" id="body-detail4"></div>
+                    <div class="jacket-button pause" id="body-detail5"></div>
+                    <div class="jacket pause" id="body-detail1"></div>
+                    <div class="jacket pause" id="body-detail2"></div>
+                </div>
+                <div class="bot-foot pause"></div>
+                <button class="btn pause mx-auto" id="pause-animation-btn">
+                    PAUSE
+                </button>
+            </div>
+        </div>
+        <div class="pause shadowed-over" id="chatbot">
+            <div class="bot pause">
+                <div class="bot-acces">
+                    <div class="hat pause">
+                        <div>
+                            <div class="tophat shadowed" id="bottom"></div>
+                            <div class="tophat shadowed" id="top"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bot-head pause shadowed-head">
+                    <div class="ear pause shadowed-ear" id="left-ear"></div>
+                    <div class="ear pause shadowed-ear" id="right-ear"></div>
+                </div>
+                <svg
+                    style="visibility: hidden; position: absolute"
+                    width="0"
+                    height="0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                >
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur
+                                in="SourceGraphic"
+                                stdDeviation="8"
+                                result="blur"
+                            />
+                            <feColorMatrix
+                                in="blur"
+                                mode="matrix"
+                                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo"
+                            />
+                            <feComposite
+                                in="SourceGraphic"
+                                in2="goo"
+                                operator="atop"
+                            />
+                        </filter>
+                    </defs>
+                </svg>
+                <div class="bot-body pause shadowed">
+                </div>
+                <div class="bot-foot pause shadowed"></div>
+                <button class="btn pause mx-auto" id="pause-animation-btn">
+                    PAUSE
+                </button>
             </div>
         </div>
     </body>

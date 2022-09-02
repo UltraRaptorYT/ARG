@@ -1,6 +1,8 @@
 #chatbot {
     position: absolute;
-    /*animation: chatbot-movement 2s infinite alternate;*/
+    animation: chatbot-movement 2s infinite alternate;
+    animation: none;
+    
 }
 
 @keyframes chatbot-movement {
@@ -18,6 +20,53 @@
     height: 400px;
     width: 300px;
     background-color: aqua;
+    margin-top: 50px;
+}
+
+/*bot accessorcries i cant spell*/
+.hat {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    animation: tophat 2s infinite alternate 1s;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 10;
+}
+
+.tophat {
+    position: absolute;
+    background-color: black;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 10;
+    
+}
+
+#bottom {
+    height: 30px;
+    width: 110px;
+    top: 75px;
+    border-radius: 10px 10px 0 0;
+}
+
+#top {
+    height: 100px;
+    width: 65px;
+}
+
+@keyframes tophat {
+    0% {
+        transform: rotate(0deg);
+        z-index: 10;
+    }
+
+    100% {
+        transform: rotate(40deg) translateX(30px) translateY(-50px);
+        z-index: 10;
+    }
 }
 
 /*bot face*/
@@ -64,6 +113,8 @@
 
     50% {
         transform: rotate(20deg);
+        height: 10px;
+        border-radius: 0;
     }
 
     100% {
@@ -78,6 +129,8 @@
 
     50% {
         transform: rotate(-20deg);
+        height: 10px;
+        border-radius: 0;
     }
 
     100% {
@@ -146,6 +199,7 @@
     filter: url("#goo");
     margin-left: auto;
     margin-right: auto;
+    z-index: 1;
 }
 
 .bot-head::before {
@@ -154,6 +208,7 @@
     padding-top: 86%;
     background: currentColor;
     clip-path: polygon(50% 25%, 100% 100%, 0 100%);
+    filter: drop-shadow(10px 20px 16px 20px #888888);
 }
 
 /*ears*/
@@ -164,7 +219,7 @@
     height: 0;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-bottom: 75px solid orange;
+    border-bottom: 75px solid rgb(231, 157, 20);
 }
 
 #left-ear {
@@ -185,6 +240,50 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 20% 20% 50% 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.jacket {
+    height: 200px;
+    width: 200px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: -30px;
+    z-index: 5
+}
+
+#body-detail1 {
+    left: 55px;
+}
+
+#body-detail2{
+    left: -130px;
+}
+
+.jacket-button {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#body-detail3 {
+    top: 40px;
+}
+
+#body-detail4 {
+    top: 60px;
+}
+
+#body-detail5 {
+    top: 80px;
 }
 
 /*foot*/
@@ -196,4 +295,13 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
+}
+
+#pause-animation-btn {
+    background-color: aquamarine;
+    border: 2px solid black;
+}
+
+.paused {
+    animation-play-state: paused !important;
 }
