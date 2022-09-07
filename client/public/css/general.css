@@ -20,7 +20,7 @@ footer > input{
 .chat-body{
     height: 70vh;
     background-color: white;
-    opacity: 50%;
+    /* opacity: 50%; */
     margin: 40px 10vw;
     border-radius: 25px;
 }
@@ -28,6 +28,10 @@ footer > input{
 .mic-icon{
     margin-left: 10px;
     margin-right: 5px;
+}
+
+.mic-icon,.sound-icon{
+    display: inline-block;
 }
 
 .bi-mic, .bi-volume-up{
