@@ -84,55 +84,5 @@
                 </button>
             </div>
         </div>
-        <div class="pause shadowed-over" id="chatbot">
-            <div class="bot pause">
-                <div class="bot-acces">
-                    <div class="hat pause">
-                        <div>
-                            <div class="tophat shadowed" id="bottom"></div>
-                            <div class="tophat shadowed" id="top"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bot-head pause shadowed-head">
-                    <div class="ear pause shadowed-ear" id="left-ear"></div>
-                    <div class="ear pause shadowed-ear" id="right-ear"></div>
-                </div>
-                <svg
-                    style="visibility: hidden; position: absolute"
-                    width="0"
-                    height="0"
-                    xmlns="http://www.w3.org/2000/svg"
-                    version="1.1"
-                >
-                    <defs>
-                        <filter id="goo">
-                            <feGaussianBlur
-                                in="SourceGraphic"
-                                stdDeviation="8"
-                                result="blur"
-                            />
-                            <feColorMatrix
-                                in="blur"
-                                mode="matrix"
-                                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                                result="goo"
-                            />
-                            <feComposite
-                                in="SourceGraphic"
-                                in2="goo"
-                                operator="atop"
-                            />
-                        </filter>
-                    </defs>
-                </svg>
-                <div class="bot-body pause shadowed">
-                </div>
-                <div class="bot-foot pause shadowed"></div>
-                <button class="btn pause mx-auto" id="pause-animation-btn">
-                    PAUSE
-                </button>
-            </div>
-        </div>
     </body>
 </html>

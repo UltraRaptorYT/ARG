@@ -1,0 +1,152 @@
+#chatbot {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: aqua;
+}
+
+#inneroct {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: blue;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    transform: rotate(23deg)
+}
+
+#inner-circle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    background-color: bisque;
+    border-radius: 50%;
+    transform: rotate(-23deg)
+}
+
+.innercross {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 35px;
+    height: 5px;
+    background-color: chartreuse;
+}
+
+#cline2 {
+    transform: rotate(90deg);
+}
+
+#blades {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    animation: clipRotateAnim 4s linear infinite;
+    overflow: hidden;
+}
+
+.blines {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 400px;
+    height: 3px;
+    background-color: black;
+    z-index: 10;
+}
+
+.blade {
+    position: absolute;
+    width: 125px;
+    height: 100px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    clip-path: polygon(0 0%, 60% 20%, 100% 50%, 60% 80%, 0 100%, 16% 50%);
+    background-color: brown;
+}
+
+#blade1 {
+    left: 215px;
+}
+
+#blade2 {
+    left: -215px;
+    transform: rotate(180deg)
+}
+
+#blade3 {
+    top: 215px;
+    transform: rotate(90deg)
+}
+
+#blade4 {
+    top: -215px;
+    transform: rotate(-90deg)
+}
+
+#outerblades {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    animation: clipRotateAnim 4s linear infinite;
+}
+
+.outerblade {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: blueviolet;
+    clip-path: polygon(0 30%, 90% 10%, 70% 100%, 15% 85%);
+}
+
+#oblade1 {
+    top: -150px;
+    left: 150px;
+}
+
+#oblade2 {
+    top: 150px;
+    left: 150px;
+    transform: rotate(90deg)
+}
+
+#oblade3 {
+    top: -150px;
+    left: -150px;
+    transform: rotate(-90deg)
+}
+
+#oblade4 {
+    top: 150px;
+    left: -150px;
+    transform: rotate(180deg)
+}
