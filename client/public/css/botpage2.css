@@ -21,23 +21,60 @@
 }
 
 #octs {
-    transform: rotate(-23deg)
-}
-
-.octs {
     position: absolute;
-    width: 62px;
-    height: 62px;
+    width: 125px;
+    height: 125px;
+    overflow: visible;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     margin: auto;
-    clip-path: polygon(30% 30%, 100% 0, 100% 100%, 0% 100%);
-    z-index: 50;
+}
+
+.octs {
+    background-color: red;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    clip-path: polygon(28% 28%, 100% 0, 100% 40%, 40% 100%, 0 100%);
+    z-index: 5;
+}
+
+#oct1 {
+    top: -65px;
+    left: -65px;
+    animation: oct1 2s forwards;
+}
+
+#oct2 {
+    top: -65px;
+    left: 65px;
+    animation: oct2 2s forwards;
+    transform: rotate(90deg)
+}
+
+#oct3 {
+    top: 65px;
+    left: 65px;
+    animation: oct3 2s forwards;
+    transform: rotate(180deg)
+}
+
+#oct4 {
+    top: 65px;
+    left: -65px;
+    animation: oct4 2s forwards;
+    transform: rotate(-90deg)
 }
 
 #inner-circle {
+    z-index: 8;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -48,7 +85,8 @@
     height: 50px;
     background-color: bisque;
     border-radius: 50%;
-    transform: rotate(-23deg)
+    transform: rotate(-23deg);
+    
 }
 
 .innercross {
@@ -88,7 +126,23 @@
     width: 400px;
     height: 3px;
     background-color: black;
-    z-index: 10;
+    z-index: 1;
+    backface-visibility: hidden;
+}
+
+.olines {
+    position: absolute;
+    top: -200px;
+    bottom: 0;
+    right: 0;
+    left: -60px;
+    margin: auto;
+    width: 400px;
+    height: 3px;
+    background-color: black;
+    z-index: 1;
+    backface-visibility: hidden;
+    transform: rotate(-45deg)
 }
 
 .blade {
@@ -102,29 +156,31 @@
     margin: auto;
     clip-path: polygon(0 0%, 60% 20%, 100% 50%, 60% 80%, 0 100%, 16% 50%);
     background-color: brown;
+    transform-style: preserve-3d;
+    z-index: 10;
 }
 
 #blade1 {
     left: 215px;
-    animation: brotate1 infinite 2s;
+    animation: brotate1 2s forwards;
 }
 
 #blade2 {
     left: -215px;
-    animation: brotate2 infinite 2s;
+    animation: brotate2 2s forwards;
     transform: rotate(180deg)
     
 }
 
 #blade3 {
     top: 215px;
-    animation: brotate3 infinite 2s;
+    animation: brotate3 2s forwards;
     transform: rotate(90deg)
 }
 
 #blade4 {
     top: -215px;
-    animation: brotate4 infinite 2s;
+    animation: brotate4 2s forwards;
     transform: rotate(-90deg)
 }
 
@@ -135,7 +191,7 @@
     right: 0;
     left: 0;
     margin: auto;
-    animation: clipRotateAnim 4s linear infinite;
+    animation: clipRotateAnim 4s;
 }
 
 .outerblade {
@@ -149,38 +205,39 @@
     margin: auto;
     background-color: blueviolet;
     clip-path: polygon(0 30%, 90% 10%, 70% 100%, 15% 85%);
+    z-index: 9;
 }
 
 #oblade1 {
     top: -150px;
     left: 150px;
-    animation: orotate1 infinite 2s;
+    animation: orotate1 2s forwards;
 }
 
 #oblade2 {
     top: 150px;
     left: 150px;
-    animation: orotate2 infinite 2s;
+    animation: orotate2 2s forwards;
     transform: rotate(90deg)
 }
 
 #oblade3 {
     top: -150px;
     left: -150px;
-    animation: orotate3 infinite 2s;
+    animation: orotate3 2s forwards;
     transform: rotate(-90deg)
 }
 
 #oblade4 {
     top: 150px;
     left: -150px;
-    animation: orotate4 infinite 2s;
+    animation: orotate4 2s forwards;
     transform: rotate(180deg)
 }
 
 @keyframes orotate1 {
     100% {
-        transform: rotate3d(90, 90, 0, 180deg) translate(45px, -45px);;
+        transform: rotate3d(-90, -90, 0, 180deg) translate(45px, -45px);
     }
 }
 
@@ -223,5 +280,39 @@
 @keyframes brotate4 {
     100% {
         transform: rotate3d(-90, -90, 0, 180deg) translate(45px);
+    }
+}
+
+@keyframes blines {
+    100% {
+        z-index: 1;
+    }
+}
+
+#blade1, #blade2, #blade3, #blade4, #oblade1, #oblade2, #oblade3, #oblade4, #oct1, #oct2, #oct3, #oct4 {
+    /*animation: none;*/
+}
+
+@keyframes oct1 {
+    100% {
+        translate: -35px -35px;
+    }
+}
+
+@keyframes oct2 {
+    100% {
+        translate: 35px -35px;
+    }
+}
+
+@keyframes oct3 {
+    100% {
+        translate: 35px 35px;
+    }
+}
+
+@keyframes oct4 {
+    100% {
+        translate: -35px 35px;
     }
 }

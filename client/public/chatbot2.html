@@ -13,6 +13,7 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="../public/css/botpage2.css" />
+        <link rel="stylesheet" href="../public/css/botpage3.css" />
         <!--JS-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -24,23 +25,36 @@
     </head>
     <body>
         <div id="chatbot">
+            <div id="sleep">
+                <div class="zs" id="z1"></div>
+                <div class="zs" id="z2"></div>
+            </div>
+
             <div id="inneroct">
-                <div id="octs">
-                    <div class="octs" id="oct1"></div>
-                    <div class="octs" id="oct2"></div>
-                    <div class="octs" id="oct3"></div>
-                    <div class="octs" id="oct4"></div>
-                </div>
                 <div id="inner-circle">
                     <div class="innercross" id="cline1"></div>
                     <div class="innercross" id="cline2"></div>
                 </div>
             </div>
+            <div id="octs">
+                <div class="octs" id="oct1"></div>
+                <div class="octs" id="oct2"></div>
+                <div class="octs" id="oct3"></div>
+                <div class="octs" id="oct4"></div>
+            </div>
             <div id="outerblades">
-                <div class="outerblade" id="oblade1"></div>
-                <div class="outerblade" id="oblade2"></div>
-                <div class="outerblade" id="oblade3"></div>
-                <div class="outerblade" id="oblade4"></div>
+                <div class="outerblade" id="oblade1">
+                    <div class="olines" id="oline1"></div>
+                </div>
+                <div class="outerblade" id="oblade2">
+                    <div class="olines" id="oline2"></div>
+                </div>
+                <div class="outerblade" id="oblade3">
+                    <div class="olines" id="oline3"></div>
+                </div>
+                <div class="outerblade" id="oblade4">
+                    <div class="olines" id="oline4"></div>
+                </div>
             </div>
             <div id="blades">
                 <div class="blade" id="blade1">
@@ -57,5 +71,7 @@
                 </div>
             </div>
         </div>
+
+        
     </body>
 </html>

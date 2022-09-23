@@ -1,0 +1,45 @@
+.sleep {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.zs {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    clip-path: polygon(100% 0, 100% 19%, 40% 80%, 100% 80%, 100% 100%, 0 100%, 0 80%, 60% 20%, 0 20%, 0 0);
+    background-color: darkgreen;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    
+}
+
+#z1 {
+    animation: sleep1 4s forwards 1s infinite;
+}
+
+#z2 {
+    animation: sleep1 4s forwards 3s infinite;
+}
+
+@keyframes sleep1 {
+    100% {
+        transform: translate(150px, -150px);
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 100%;
+    }
+}
