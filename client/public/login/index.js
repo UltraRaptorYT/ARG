@@ -1,6 +1,6 @@
 // hide show button
 function hideshow() {
-    var x = document.getElementById("hideShow");
+    let x = document.getElementById("hideShow");
     if (x.style.display === "none")
         x.style.display = "block";
     else

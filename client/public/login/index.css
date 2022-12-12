@@ -5,7 +5,7 @@ html, body {
 
 /* background image */
 body {
-    background-image: url(src/img/cyberpunkbackground3.jpg);
+    background-image: url(../src/img/cyberpunkbackground3.jpg);
     /* centered vertically and horizontally */
     background-position: center center;
     /* doesn't tile */
