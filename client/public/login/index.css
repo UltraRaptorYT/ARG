@@ -192,7 +192,7 @@ body {
         /* https://fontesk.com/like-eat-font/ */
         @font-face {
             font-family: 'LikeEat';
-            src: url('src/fonts/LikeEat.ttf');
+            src: url('../src/fonts/LikeEat.ttf');
         }
         .likeeat {
             font-family: "LikeEat";
@@ -200,7 +200,7 @@ body {
         /* https://fontesk.com/Cherry-Cocktail-font/ */
         @font-face {
             font-family: 'CherryCocktail';
-            src: url('src/fonts/CherryCocktail.ttf');
+            src: url('../src/fonts/CherryCocktail.ttf');
         }
         .cherrycocktail {
             font-family: "CherryCocktail";
@@ -208,7 +208,7 @@ body {
         /* https://fontesk.com/ogre-mono-grotesk-font/ */
         @font-face {
             font-family: 'OgreMono';
-            src: url('src/fonts/OgreMono.ttf');
+            src: url('../src/fonts/OgreMono.ttf');
         }
         .ogremono {
             font-family: "OgreMono";
