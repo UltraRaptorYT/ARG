@@ -5,7 +5,7 @@ html, body {
 
 /* background image */
 body {
-    background-image: url(src/img/cyberpunkbackground3.jpg);
+    /* background-image: url(src/img/cyberpunkbackground3.jpg); */
     /* centered vertically and horizontally */
     background-position: center center;
     /* doesn't tile */
@@ -20,10 +20,9 @@ body {
 .card {
     margin-top: 5vh !important;
     height: fit-content;
-    background-color: rgba(35, 35, 35, 0.7);
+    background-color: rgba(24, 24, 24, 0.7);
     width: 80% !important;
-    border-radius: 2%;
-    margin-bottom: 2% !important;
+    margin-bottom: 25vh !important;
 }
 
 /* sp logos */
@@ -152,7 +151,7 @@ body {
 
 /* secret page */
     .lock {
-        width: 40%;
+        width: 20%;
         margin-left: auto;
         margin-right: auto;
         display: block;
