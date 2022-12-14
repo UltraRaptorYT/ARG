@@ -186,14 +186,6 @@ body {
 
 /* fonts */
     /* importing */
-        /* https://fontesk.com/like-eat-font/ */
-        @font-face {
-            font-family: 'LikeEat';
-            src: url('../src/fonts/LikeEat.ttf');
-        }
-        .likeeat {
-            font-family: "LikeEat";
-        }
         /* https://fontesk.com/Cherry-Cocktail-font/ */
         @font-face {
             font-family: 'CherryCocktail';
