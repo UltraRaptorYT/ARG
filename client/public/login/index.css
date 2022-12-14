@@ -120,7 +120,6 @@ body {
         font-family: "CherryCocktail";
     }
     h4 {
-        font-family: "LikeEat";
         font-size: 1.3em;
     }
     .extrainfo {
@@ -222,11 +221,6 @@ body {
         color:rgba(232, 161, 222, 1);
     }
 
-
-
 .btn{
     box-shadow: none !important
 }
-
-
-      
