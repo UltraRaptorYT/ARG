@@ -35,9 +35,9 @@
                 <!-- row 1 -->
                 <div class="row">
                     <!-- laptop -->
-                    <div class="d-none d-lg-block container-fluid">
+                    <div class="d-block container-fluid ">
                         <!-- main col -->
-                        <div class="col-8 maincolumn1">
+                        <div class="col-12 col-lg-8 maincolumn1">
                             <h2>Singapore Polytechnic</h2>
                             <p>Singapore Polytechnic (SP) is a post-secondary education institution and statutory board
                                 under the purview of the Ministry of Education in Singapore.</p>
@@ -45,17 +45,19 @@
                                 The polytechnic is also renowned for its engineering programmes.</p>
 
                             <!-- hide / show -->
-                            <button onclick="hideshow()" class="hideshowBtn" id="btn">Hide</button>
-                            <div id="hideShow">
-                                <ul style="list-style: none">
-                                    <li><a href="#organisation1" class="jumpto">Organisation</a></li>
-                                    <li><a href="#facilities1" class="jumpto">Facilities</a></li>
-                                    <li><a href="#recognition1" class="jumpto">Recognition</a></li>
-                                    <li><a href="#scholarships1" class="jumpto">Scholarships</a></li>
-                                    <li><a href="#admission1" class="jumpto">Admission</a></li>
-                                    <li><a href="#incidents1" class="jumpto">Incidents</a></li>
-                                    <li><a href="#alumni1" class="jumpto">Notable Alumni</a></li>
-                                </ul>
+                            <div class="class mb-4">
+                                <button onclick="hideshow()" class="hideshowBtn" id="btn">Hide</button>
+                                <div id="hideShow" style="display: none">
+                                    <ul style="list-style: none">
+                                        <li><a href="#organisation1" class="jumpto">Organisation</a></li>
+                                        <li><a href="#facilities1" class="jumpto">Facilities</a></li>
+                                        <li><a href="#recognition1" class="jumpto">Recognition</a></li>
+                                        <li><a href="#scholarships1" class="jumpto">Scholarships</a></li>
+                                        <li><a href="#admission1" class="jumpto">Admission</a></li>
+                                        <li><a href="#incidents1" class="jumpto">Incidents</a></li>
+                                        <li><a href="#alumni1" class="jumpto">Notable Alumni</a></li>
+                                    </ul>
+                                </div>
                             </div>
 
                             <h3 id="organisation1">Organisation</h3>
@@ -379,13 +381,6 @@
         </div>
     </div>
     <br>
-
-    <!-- 
-        d-none d-lg-block [laptop]
-        d-none d-md-block d-lg-none [tablet]
-        d-sm-block d-md-none [mobile]
-     -->
-
 </body>
 
 </html>
