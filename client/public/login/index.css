@@ -17,11 +17,12 @@ body {
 
 /* card */
 .card {
+    border-radius: 10px;
     margin-top: 5vh !important;
     height: fit-content;
     background-color: rgba(24, 24, 24, 0.7);
     width: 80% !important;
-    margin-bottom: 25vh !important;
+    margin-bottom: 5vh !important;
 }
 
 /* sp logos */
