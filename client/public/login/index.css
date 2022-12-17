@@ -218,3 +218,102 @@ body {
 }
 
   
+  .px-app,
+  .px-app *,
+  .px-app *::before,
+  .px-app *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+  }
+  .px-glitch {
+    text-align: center;
+  }
+  
+  .px-glitchtext {
+    font-size: 5rem;
+    font-weight: 600;
+    text-shadow: 3px 0 0 rgba(255, 0, 255, 1), -3px 0 0 rgba(0, 255, 255, 1);
+    display: block;
+  }
+  @keyframes glitchtext {
+    0% {
+      text-shadow: 3px 0 0 rgba(255, 0, 255, 1), -3px 0 0 rgba(0, 255, 255, 1);
+    }
+    20% {
+      text-shadow: 0 0 0 rgba(255, 0, 255, 1), -3px -1px 0 rgba(0, 255, 255, 1);
+    }
+    40% {
+      text-shadow: -3px -2px 0 rgba(255, 0, 255, 1),
+        2px 1px 0 rgba(0, 255, 255, 1);
+    }
+    60% {
+      text-shadow: -1px 2px 0 rgba(255, 0, 255, 1), 0 0 0 rgba(0, 255, 255, 1);
+    }
+    80% {
+      text-shadow: 2px -1px 0 rgba(255, 0, 255, 1), 3px 2px 0 rgba(0, 255, 255, 1);
+    }
+    100% {
+      text-shadow: 3px 0 0 rgba(255, 0, 255, 1), -3px 0 0 rgba(0, 255, 255, 1);
+    }
+  }
+  .px-glitchtext-anim {
+    animation: glitchtext 300ms linear infinite;
+  }
+  
+  .px-glitchsvg {
+    font-size: 4rem;
+    filter: drop-shadow(2px 0 0 rgba(255, 0, 255, 1))
+      drop-shadow(-2px 0 0 rgba(0, 255, 255, 1));
+  }
+  .px-glitchsvg-anim {
+    animation: glitchsvg 200ms none infinite;
+  }
+  @keyframes glitchsvg {
+    0% {
+      filter: drop-shadow(2px 0 0 rgba(255, 0, 255, 1))
+        drop-shadow(-2px 0 0 rgba(0, 255, 255, 1));
+    }
+    20% {
+      filter: drop-shadow(0 0 0 rgba(255, 0, 255, 1))
+        drop-shadow(-2px -1px 0 rgba(0, 255, 255, 1));
+    }
+    40% {
+      filter: drop-shadow(-2px -2px 0 rgba(255, 0, 255, 1))
+        drop-shadow(2px 1px 0 rgba(0, 255, 255, 1));
+    }
+    60% {
+      filter: drop-shadow(-1px 2px 0 rgba(255, 0, 255, 1))
+        drop-shadow(0 0 0 rgba(0, 255, 255, 1));
+    }
+    80% {
+      filter: drop-shadow(2px -1px 0 rgba(255, 0, 255, 1))
+        drop-shadow(2px 2px 0 rgba(0, 255, 255, 1));
+    }
+    100% {
+      filter: drop-shadow(2px 0 0 rgba(255, 0, 255, 1))
+        drop-shadow(-2px 0 0 rgba(0, 255, 255, 1));
+    }
+  }
+
+input.button {
+    background-color: pink;
+    transition: 0.3s;
+    margin-top: 10px;
+    padding: 6px;
+    border-radius: 10px;
+    color: black;
+}
+
+input.button:hover {
+    transform: scale(1.05);
+}
+
+input.button:active {
+    transform: scale(0.95);
+    background-color: black;
+    color: pink
+}
+  
+  
