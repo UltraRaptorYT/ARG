@@ -129,13 +129,17 @@ body {
     }
 
     /* dropdown */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
     .dropbtn {
         background-color: rgba(232, 161, 222, 0.2);
         color: rgba(255, 255, 255, 0.9);
         font-weight: bold;
         border: none;
-        padding: 0.5em;
-        margin-bottom: 20px;
+        padding: 10px
     }
     .dropdown:hover .dropbtn {
         background-color: rgba(232, 161, 222, 1)
