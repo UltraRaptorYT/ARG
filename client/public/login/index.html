@@ -28,14 +28,14 @@
         <!-- tabs -->
         <div class="mytabs">
             <input type="radio" id="tabinfo" name="mytabs" checked="checked">
-            <label for="tabinfo" class="likeeat">information</label>
+            <label for="tabinfo">information</label>
             <div class="tab">
                 <div class="line"></div>
 
                 <!-- row 1 -->
                 <div class="row">
                     <!-- laptop -->
-                    <div class="d-block container-fluid ">
+                    <div class="d-block container-fluid d-none  d-lg-block">
                         <!-- main col -->
                         <div class="col-12 col-lg-8 maincolumn1">
                             <h2>Singapore Polytechnic</h2>
@@ -61,7 +61,7 @@
                             </div>
 
                             <h3 id="organisation1">Organisation</h3>
-                            <div class="line2"></div>
+                            <div class="lineOrg1"></div>
                             <p>Singapore Polytechnic offers full-time diploma courses and a range of continuing
                                 education programmes. It has 11 academic schools:</p>
                             <ul>
@@ -77,6 +77,10 @@
                                 <li>Media, Arts and Design School <b>(MAD)</b></li>
                                 <li>Singapore Maritime Academy <b>(SMA)</b></li>
                             </ul>
+
+                            <p>The Professional & Adult Continuing Education Academy, also known as the PACE Academy, is a
+                                multidisciplinary Continuing Education and Training (CET) Academy offering CET programmes for
+                                adults, both online and class room based</p>
                         </div>
 
                         <!-- side col -->
@@ -156,8 +160,7 @@
                             The polytechnic is also renowned for its engineering programmes.</p>
 
                         <!-- hide / show -->
-                        <!-- ASK HONG YU -->
-                        <button onclick="hideshow()" class="hideshowBtn likeeat" id="btn">Hide</button>
+                        <button onclick="hideshow()" class="hideshowBtn" id="btn">Hide</button>
                         <div id="hideShow">
                             <ul style="list-style: none; font-family: monospace;">
                                 <li><a href="#organisation2" class="jumpto">Organisation</a></li>
@@ -231,10 +234,10 @@
 
                         <br>
                         <h3 id="organisation2">Organisation</h3>
-                        <div class="line2"></div>
+                        <div class="lineOrg2"></div>
                         <p>Singapore Polytechnic offers full-time diploma courses and a range of continuing
                             education programmes. It has 11 academic schools:</p>
-                        <ul class="likeeat">
+                        <ul>
                             <li>School of Architecture and the Built Environment <b>(ABE)</b></li>
                             <li>SP Business School <b>(SB)</b></li>
                             <li>School of Chemical and Life Sciences <b>(CLS)</b></li>
@@ -248,15 +251,16 @@
                             <li>Singapore Maritime Academy <b>(SMA)</b></li>
                         </ul>
 
-
+                        <p>The Professional & Adult Continuing Education Academy, also known as the PACE Academy, is a
+                            multidisciplinary Continuing Education and Training (CET) Academy offering CET programmes for
+                            adults, both online and class room based</p>
+                        
                     </div>
                 </div>
 
                 <!-- row 2 -->
                 <div class="row">
-                    <p>The Professional & Adult Continuing Education Academy, also known as the PACE Academy, is a
-                        multidisciplinary Continuing Education and Training (CET) Academy offering CET programmes for
-                        adults, both online and class room based</p>
+                    
                     <div class="space"></div>
 
                     <h3 id="facilities1">Facilities</h3>
@@ -365,7 +369,7 @@
             </div>
 
             <input type="radio" id="tabsecret" name="mytabs">
-            <label for="tabsecret" class="likeeat">secret</label>
+            <label for="tabsecret">secret</label>
             <div class="tab">
                 <div class="line"></div>
                 <img class="lock mx-auto d-block" src="../src/img/lockpurple.png" alt="lockpurple.png">

@@ -48,6 +48,21 @@ body {
     margin-bottom: 10px;
 }
 .line2 {
+    width: 96%;
+    background-color: white;
+    border: 1px solid white;
+    opacity: 1;
+    margin-bottom: 10px;
+    margin-left: 13px;
+}
+.lineOrg1 {
+    width: 100%;
+    background-color: white;
+    border: 1px solid white;
+    opacity: 1;
+    margin-bottom: 10px;
+}
+.lineOrg2 {
     width: 100%;
     background-color: white;
     border: 1px solid white;
@@ -89,7 +104,6 @@ body {
     /* main col row 1 */
     .mytabs .tab h2 {
         font-size: 3em;
-        font-family: "CherryCocktail";
     }
     .maincolumn1 {
         float: left;
@@ -117,7 +131,6 @@ body {
     /* main col row 2 */
     h3 {
         margin-bottom: 0;
-        font-family: "CherryCocktail";
     }
     h4 {
         font-size: 1.3em;
@@ -185,24 +198,6 @@ body {
     }
 
 /* fonts */
-    /* importing */
-        /* https://fontesk.com/Cherry-Cocktail-font/ */
-        @font-face {
-            font-family: 'CherryCocktail';
-            src: url('../src/fonts/CherryCocktail.ttf');
-        }
-        .cherrycocktail {
-            font-family: "CherryCocktail";
-        }
-        /* https://fontesk.com/ogre-mono-grotesk-font/ */
-        @font-face {
-            font-family: 'OgreMono';
-            src: url('../src/fonts/OgreMono.ttf');
-        }
-        .ogremono {
-            font-family: "OgreMono";
-        }
-
     .splink {
         color: rgba(232, 161, 222, 1);
     }
