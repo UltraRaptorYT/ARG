@@ -20,6 +20,26 @@
     transform: none;
   }
 }
+body {
+  background-color: black;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.stage {
+  animation: move 2s ease-out infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes move {
+  0% {
+    translate: 0% 0%;
+  }
+  100% {
+    translate: 100% 100%;
+  }
+}
 
 .ball {
   display: inline-block;
@@ -29,12 +49,14 @@
   border-radius: 50%;
   position: relative;
   background: radial-gradient(
-    circle at 47.5% 40%,
-    #fcfcfc,
-    #efeff1 66%,
-    #00000055 100%
+    circle at 47.5% 45%,
+    #eeeeee,
+    #dddddd 66%,
+    #232c2b 100%
   );
+  box-shadow: 0px 0px 3px #00000040;
 }
+
 .ball:after {
   content: "";
   position: absolute;
@@ -46,7 +68,7 @@
   background: radial-gradient(
     circle at 50% 50%,
     rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0.8) 14%,
+    rgba(255, 255, 255, 0.85) 14%,
     rgba(255, 255, 255, 0) 24%
   );
   transform: translateX(-80px) translateY(-90px) skewX(-20deg);
