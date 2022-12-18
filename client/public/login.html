@@ -11,33 +11,47 @@
       }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script> -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <form id="login-form">
       <label>
         E-Mail
-        <input type="text" id="email" placeholder="Email" />
+        <input type="text" name="email" id="email" placeholder="Email" required />
       </label>
       <label>
         Password
-        <input type="password" id="email" placeholder="Password" />
+        <input type="password" name="password" id="password" placeholder="Password" required />
       </label>
+      <button type="submit">Login</button>
     </form>
   </body>
   <script type="module">
-    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+    import supabase from "./src/supabase.js";
 
-    const form = querySelector("#login-form");
+    async function signInWithEmail({ email, password }) {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (error) {
+        alert(error.message);
+        console.error(error);
+      } else {
+        alert("Successfully logged in!");
+        console.log(data);
+      }
+    }
 
-    const { data, error } = await supabase.auth.signUp({
-      email: "example@email.com",
-      password: "example-password",
+    const form = document.getElementById("login-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const email = formData.get("email");
+      const password = formData.get("password");
+
+      signInWithEmail({ email, password });
     });
-
-    const supabase = createClient(
-      "https://lvixgdrkzecihyzpessj.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2aXhnZHJremVjaWh5enBlc3NqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzA4OTI3MjEsImV4cCI6MTk4NjQ2ODcyMX0.o8MGdLzgvOeQCRyL0uFkldN2wwlOBWZtx8SUBY29OlY"
-    );
-    supabase.console.log(data);
   </script>
 </html>

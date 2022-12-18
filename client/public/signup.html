@@ -12,7 +12,8 @@
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
     <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script> -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <form id="signup-form">
@@ -55,21 +56,17 @@
     }
 
     async function signUp({ full_name, email, password, admin_number, student_class }) {
-      console.log(admin_number);
-      console.log(typeof admin_number);
-      const { data, error } = await supabase.auth.signUp(
-        {
-          email,
-          password,
-        },
-        {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
           data: {
             full_name,
             admin_number,
             student_class,
           },
-        }
-      );
+        },
+      });
     }
 
     const form = document.getElementById("signup-form");
