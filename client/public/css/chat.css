@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @keyframes move-eye-skew {
   0% {
     transform: none;
@@ -20,16 +28,33 @@
     transform: none;
   }
 }
+
 body {
   background-color: black;
   position: relative;
   width: 100vw;
   height: 100vh;
+  height: calc(100vh - var(--vh));
 }
 
-.stage {
-  animation: move 2s ease-out infinite;
-  animation-direction: alternate-reverse;
+#container {
+  scale: 0.55;
+  position: absolute;
+  animation: move 5s ease-out infinite;
+  animation-direction: alternate;
+}
+
+#container:has(.iris.sleep) {
+  animation: none;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes move {
@@ -89,6 +114,7 @@ body {
   position: absolute;
   animation: move-eye-skew 5s ease-out infinite;
 }
+
 .iris:before {
   content: "";
   display: block;
@@ -107,17 +133,76 @@ body {
   );
   box-shadow: 0px 0px 50px #4381b2;
 }
-/* .iris:after {
-  content: "";
-  display: block;
+
+.iris.sleep {
+  transform: none;
+  animation: none;
+}
+
+.iris.sleep::after {
+  content: "z";
   position: absolute;
-  width: 31.25%;
-  height: 31.25%;
-  border-radius: 50%;
-  top: 18.75%;
-  left: 18.75%;
-  background: rgba(255, 255, 255, 0.2);
-} */
+  color: #208ab4;
+  font-weight: bold;
+  font-size: 5vw;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  right: -100%;
+  top: -100%;
+  animation: sleep 2s ease-in-out infinite,
+    randomMove 2s ease-in-out infinite alternate;
+}
+
+.iris.sleep::before {
+  content: "z";
+  background: transparent;
+  box-shadow: none;
+  display: inline;
+  position: absolute;
+  color: #208ab4;
+  font-weight: bold;
+  font-size: 5vw;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  rotate: 0deg;
+  top: -80%;
+  left: 125%;
+  animation: sleep2 1.25s ease-in-out infinite,
+    randomMove 1.5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes sleep2 {
+  from {
+    top: -80%;
+    left: 125%;
+    opacity: 1;
+  }
+  to {
+    top: -125%;
+    left: 150%;
+    opacity: 0;
+  }
+}
+
+@keyframes sleep {
+  from {
+    right: -100%;
+    top: -100%;
+    opacity: 1;
+  }
+  to {
+    right: -150%;
+    top: -150%;
+    opacity: 0;
+  }
+}
+
+@keyframes randomMove {
+  from {
+    rotate: -25deg;
+  }
+  to {
+    rotate: 25deg;
+  }
+}
 
 .ball .shadow {
   position: absolute;
@@ -141,4 +226,5 @@ body {
   perspective-origin: 50% 50%;
   transform-style: preserve-3d;
   transform: rotateY(0.01deg);
+  position: relative;
 }
