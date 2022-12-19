@@ -6,6 +6,7 @@ bot.addEventListener("click", () => {
     bot.querySelector(".iris").classList.add("waking");
     bot.addEventListener("animationend", (event) => {
       bot.querySelector(".iris").classList.remove("waking");
+      alert("Morning")
     });
   }
 });

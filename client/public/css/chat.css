@@ -145,7 +145,7 @@ body {
   position: absolute;
   color: #208ab4;
   font-weight: bold;
-  font-size: 5vw;
+  font-size: clamp(3rem, 4vw, 10rem);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   right: -100%;
   top: -100%;
@@ -161,7 +161,7 @@ body {
   position: absolute;
   color: #208ab4;
   font-weight: bold;
-  font-size: 5vw;
+  font-size: clamp(3rem, 4vw, 10rem);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   rotate: 0deg;
   top: -80%;
@@ -172,27 +172,31 @@ body {
 
 @keyframes sleep2 {
   from {
-    top: -80%;
+    top: -60%;
     left: 125%;
     opacity: 1;
+    font-size: clamp(3rem, 4vw, 10rem);
   }
   to {
     top: -125%;
     left: 150%;
     opacity: 0;
+    font-size: clamp(5rem, 6vw, 15rem);
   }
 }
 
 @keyframes sleep {
   from {
-    right: -100%;
-    top: -100%;
+    right: -75%;
+    top: -75%;
     opacity: 1;
+    font-size: clamp(3rem, 4vw, 10rem);
   }
   to {
     right: -150%;
     top: -150%;
     opacity: 0;
+    font-size: clamp(5rem, 6vw, 15rem);
   }
 }
 
