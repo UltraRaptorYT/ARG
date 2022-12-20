@@ -40,8 +40,6 @@ body {
 #container {
   scale: 0.55;
   position: absolute;
-  animation: move 5s ease-out infinite;
-  animation-direction: alternate;
 }
 
 @keyframes rotate {
@@ -106,9 +104,7 @@ body {
     #434343 30%,
     #000000 100%
   );
-  transform: translateX(68px) translateY(-60px) skewX(15deg) skewY(2deg);
   position: absolute;
-  animation: move-eye-skew 5s ease-out infinite;
 }
 
 .iris:before {
@@ -128,6 +124,17 @@ body {
     #4381b2 100%
   );
   box-shadow: 0px 0px 50px #4381b2;
+}
+
+/* Move */
+.iris.move {
+  animation: move-eye-skew 5s ease-out infinite;
+  transform: translateX(68px) translateY(-60px) skewX(15deg) skewY(2deg);
+}
+
+#container:has(.iris.move) {
+  animation: move 5s ease-out infinite;
+  animation-direction: alternate;
 }
 
 /* SLEEP */
@@ -209,7 +216,7 @@ body {
   }
 }
 
-/* waking */
+/* Waking */
 #container:has(.iris.waking) {
   animation: none;
 }
