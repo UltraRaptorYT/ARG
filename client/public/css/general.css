@@ -1,8 +1,18 @@
 body {
   background-image: url(../src/background.jpg);
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center top;
   color: black;
+  width: 100vw;
+  height: 100vh;
+  /* height: calc(100vh - var(--vh)); */
+}
+
+.height {
+  width: 100vw;
+  height: 100vh;
+  height: calc(100vh - var(--vh));
 }
 
 .navigation {
