@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#bg {
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  position: fixed;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  z-index: 1000;
+  color: white;
+  font-size: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
+  background: url("https://www.denofgeek.com/wp-content/uploads/2021/04/Pikachu.png?fit=1920%2C1080");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
