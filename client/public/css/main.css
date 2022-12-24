@@ -36,7 +36,6 @@ body {
   margin: 0;
   padding: 0;
   opacity: 1;
-  z-index: 1000;
   color: white;
   font-size: 10vh;
   display: flex;
@@ -54,16 +53,4 @@ body {
     opacity: 0;
     z-index: -1;
   }
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-aside#nav {
-  top: 50%;
-  bottom: 50%;
-  position: fixed;
 }
