@@ -123,7 +123,6 @@ nav ul a:nth-child(5) i::after {
 #chatBody {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 25px;
-  backdrop-filter: blur(3px);
 }
 
 #chat {
@@ -174,7 +173,7 @@ nav ul a:nth-child(5) i::after {
 
 @media screen and (max-width: 576px) {
   #chatWrapper {
-    padding: 0px 60px;
+    padding: 0px 40px;
   }
   .bubble {
     max-width: 100%;
@@ -198,15 +197,29 @@ input {
   translate: -2.5px 0px;
 }
 
-#buttons {
-  position: absolute;
+#mute {
+  height: 100%;
+  aspect-ratio: 1;
+}
+
+#inputBox button:nth-child(1) {
+  border-radius: 50% 0 0 50%;
+}
+
+#inputBox button:nth-child(3) {
+  border-radius: 0 50% 50% 0;
+}
+
+.btn-new {
+  background: #a0bffe;
   color: white;
-  font-size: 10vh;
-  bottom: 0;
-  right: 0;
-  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  font-size: 16px;
+}
+
+.btn-new:hover {
+  background: #83a6ea;
+  color: white;
 }

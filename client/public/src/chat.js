@@ -32,3 +32,17 @@ function autoReply(message = "Hello!") {
 function scrollBottom() {
   chat.scrollTo(0, chat.scrollHeight);
 }
+
+var mute = document.getElementById("mute");
+
+mute.addEventListener("click", () => {
+  if (mute.dataset.mute == "true") {
+    mute.children[0].classList.add("bi-volume-up-fill");
+    mute.children[0].classList.remove("bi-volume-mute-fill");
+    mute.dataset.mute = "false";
+  } else {
+    mute.children[0].classList.remove("bi-volume-up-fill");
+    mute.children[0].classList.add("bi-volume-mute-fill");
+    mute.dataset.mute = "true";
+  }
+});
