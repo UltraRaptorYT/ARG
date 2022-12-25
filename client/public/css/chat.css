@@ -210,16 +210,19 @@ input {
   border-radius: 0 50% 50% 0;
 }
 
-.btn-new {
-  background: #a0bffe;
-  color: white;
+.btn-new,
+.btn-new:active,
+.btn-new:focus {
+  background: #6397ff;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 20px;
+  border: 0;
 }
 
 .btn-new:hover {
-  background: #83a6ea;
-  color: white;
+  background: #5181e0;
+  color: #fff;
 }
