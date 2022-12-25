@@ -13,7 +13,7 @@ body {
   background-size: cover;
   background-position: center top;
   background-image: url(../src/background.jpg);
-  background-blend-mode: lighten;
+  background-color: #0c0e41;
 }
 
 aside {
