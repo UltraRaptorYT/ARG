@@ -1,5 +1,8 @@
 var chat = document.getElementById("chat");
 
+const URL =
+  "https://us-central1-arg-test-3267b.cloudfunctions.net/app/api/chat";
+
 document.querySelector("#message").addEventListener("keydown", (e) => {
   if (e.key == "Enter") {
     writeMessage();
@@ -17,18 +20,27 @@ function writeMessage() {
 			<div class="me bubble">${message}</div>
 		`;
     scrollBottom();
-    setTimeout(autoReply(), 5000);
+    axios({
+      method: "post",
+      url: URL,
+      data: {
+        prompt: message,
+      },
+    })
+      .then((response) => {
+        autoReply(response.data.message);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   document.getElementById("message").value = "";
 }
 
-function autoReply(
-  message = `Hello!`
-) {
+function autoReply(message = `Hello!`) {
   chat.innerHTML += `
 	<div class="other bubble">${message}</div>
 	`;
-  playText(message);
   playText(message);
   scrollBottom();
 }
