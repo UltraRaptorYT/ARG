@@ -1,9 +1,19 @@
 body {
-  background-image: url(../src/background.jpg);
+  transition: all ease-in-out;
+  background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
   color: white;
+  overflow: hidden;
+}
+
+.body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-image: url(../src/background.jpg);
+  background-blend-mode: lighten;
 }
 
 aside {
@@ -12,6 +22,7 @@ aside {
   position: fixed;
   display: flex;
   align-items: center;
+  z-index: 11;
 }
 
 nav ul {
@@ -225,4 +236,34 @@ input {
 .btn-new:hover {
   background: #5181e0;
   color: #fff;
+}
+
+#chatAIWrapper {
+  z-index: 10;
+}
+
+#back {
+  position: fixed;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+}
+
+#back.animate {
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 1;
+    z-index: 9;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
 }
