@@ -1,0 +1,14 @@
+body {
+  background-image: url("../src/blackWall.png");
+  /* background-image: url("https://media.tenor.com/E-0EGJ51mz4AAAAd/cyberpunk-blackwall.gif"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container {
+  background-color: rgba(255, 255, 255, 0.75);
+}
