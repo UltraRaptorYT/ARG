@@ -10,139 +10,78 @@
   <body>
     <div id="bg">Act 3</div>
     <div id="crossword"></div>
-
     <script>
-      function lol(t, k) {
-        k = k.toUpperCase();
-        let arr = [];
-        for (let i = 0; i < t.length; i++) {
-          let char = t[i];
-          let ascii = char.charCodeAt(0);
-          if (ascii >= 65 && ascii <= 90) {
-            let shift = k[i % k.length].charCodeAt(0) - 65;
-            ascii = ((ascii - 65 - shift + 26) % 26) + 65;
-          } else if (ascii >= 97 && ascii <= 122) {
-            let shift = k[i % k.length].charCodeAt(0) - 65;
-            ascii = ((ascii - 97 - shift + 26) % 26) + 97;
+      function lol(s, r) {
+        let pt = new Array(s.length);
+        let k = 0;
+        let l = 0;
+        for (l = 0; l < r - 1; l++) {
+          let skip = 2 * (r - l - 1);
+          let j = 0;
+          for (let i = l; i < s.length; ) {
+            pt[i] = s.charAt(k++);
+            if (l == 0 || j % 2 == 0) i += skip;
+            else i += 2 * (r - 1) - skip;
+            j++;
           }
-          arr.push(String.fromCharCode(ascii));
         }
-        return arr.join("");
+        for (let i = l; i < s.length; i += 2 * (r - 1)) {
+          pt[i] = s.charAt(k++);
+        }
+        return pt.join("");
       }
+
+      var newtxt = `
+bedeiloue7vnr-cepop1oioo4loun# - ste9lhee6v
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+e:Ttr hhkeCA tai)I1rh0sc   ^ io_)g 4i)a   t1h
+Ifl m
+e uahdel mda(b37a  niov
+ o7g iIf t9ein(t abamc_e(m h 5r3horlxd e-e xi:-xdvovinorv:D
+leo:u-ecff xotclnuf9xltolutn75ovinoro-:2
+ eo:c-mutvr12ovt: xhi1
+le: ............. ...A......... ...L..G...... P..K..L..V... R..A.CORLA... O..L..B..L... PYMI..E..E... A........NT.. N.....W.ACE.. E.PYAGAS.ER.. ..L...T...M.. ..ADNTE...I.. ..S...R...N.. ..M.....GHAB. ..AMTH....L.. ............. v-s
+ hn ogewpoteaec [HLS 8 o tto7 MD 2gete9 e au  etmab22irbt __0 ao  / cr8 rn 1mtdaai(0gt]  t i onD[a] v-  optlteoil ak  e n ct 5oe  ()pn 4reo  ntm[a] 6spl()ao 7 sS o ?(at  gnwt e 9ue
+ Flojec aoi__vl 8ri  iyno()e]1 t  fe paeon
+  xeg o- to-
+xet:l-i#F o-i oavl#1 o-i oitc2evpnort:a
+xet:l-thr18evpnoraboo:f
+xed  o-g  o-d                                                                                                                                                                                                                                 las 5eac alh tnstsa( LPT  m d an([A]  ee t de([t 1hhe^  ^stu ___1[hr
+ 1o c([dt 5eontco )isr 6eontco  mh ld
+ r es  icb([a
+ ttiaoiB)l] C  oe  elrsl a  le  i y  xn  t  u pr4w] Ho  heun)er]  l erhsxlt__ oy)en
+ Ddex  t
+ T4se t([s
+le   ovi
+letsle e-p oatFF xotclciu:9
+leo:u-:f
+ eo:c-u#8 e-p obtoe83xltolul-nh#c e-i2
+leh: xgi ............. ............. ............. ............. .....HLOPST.. ..W..E....... .RAD.X....... ..TE.A....... ..TU.G...UT.. ...THOR...... ...E.N....... .QURA........ ...I......... ...U...LITSER ..MMO........ .............eoco   lelnleeoyi  l1)OO] Iefnlc  PR
+ 0ds<a<er5 e
+3Ter2+=c ttd___(pta]1 fal qa]  t i onC lae 1mtdaai()mteoon1G1m npr a6 l]2Ioftlo  g
+ 38[r] Otethla ()ec 6ddgn[e] Watentoe)[
+ yrbt nto dim 0igc  t ey __ct ta]1 rgie[a  h ttmt6 m]v-    lnvev occFepote2vnr# - b2 ocuv8oiol-f w6vter                                                                                                                xr plerssp1R
+tioAY    g)] o  ae_ ys4 eu
+Ifl [b   t7oxw  iet)i   n[ Hp
+ucen7n eoh
+hhiw  duor[u1ntiv:_i[l1odw eaa)ae  `;
       // Create crossword
-      createExolve(
-        lol(
-          `
-
-======JSRNATK KKVH EGIT PLFRZG BVRGK====== 
-
-gxfrns-dexof
-  eoudjg-iu: hgut-kpcnxe-jaj
-  vdgzxg-fvlwqp: igzqwr-guhkxe:#XTHHD7     
-  gzocbw-qrtzuf: eocumf-cckons-ellk:#hef192
-  eoudjg-ogzacp: tudcwt-zthiv:#wix192      
-  wlqnvv-gdvkoe: qqnolx-pwvtft:#28a745
-  eoudjg-ogzacp: tudcwt-salhqp-yunst:#218838
-  wlqnvv-gdvkoe: qqnolx-goclc-tivvoe-zcxgr:#xqh192
-  gzocbw-ykdkn: 26
-  wlqnvv-zskihk: 16
-  kpcnxe-mjwf:
-    . . . . . . . . . . . . . . . . . . . . . . . . . .
-    . . . . . . S . . . . . . . . . . . . . . . . . . .
-    . . . . . . D . . . . . . Y . . . . . . . . . . . .
-    . P . . . . C . . . . . . D . . . . X . . . . . . .
-    . R . . . . S . . . Q J C G T O V Z C J L . . . . .
-    . O . . Y . D . . . . G . T . . . . N . . . . . . .
-    . P E F C D A F . . . Z . W . . . . G . . . . . . .
-    . A . . V . . G . . . C . . . . . . P . . V . . . .
-    . N . . V . . W . . . I . O . . . O E L L G . . . .
-    . E . . . G Q V H G U Q I S U . . . G . . T . . . .
-    . . . . . C . G . . . P . L . . . . . . . O . . . .
-    . . . E W R V T A T H . . W . . . . . . . K . . . .
-    . . . . . J . K . . . . . J . . . . . . . P . . . .
-    . . . . . D . W . . . . . . . L O U J K K C B K F .
-    . . . . O R E O O Z V . . . . . . . . . . N . . . .
-    . . . . . . . . . . . . . . . . . . . . . . . . . .
-  wlqnvv-sqtqsj:
-    5 Lvg pcgfh eecr ctiaekdzg wykjs rhfzggaptykkwu trqwg rlriw (11) [QJNOIUHZCUT]
-    8 Olso tf xwpf rz zqeakogb C (7) [RYIGEWF]
-    12 0 vsitevy < vhvzs < 90 vsitevy (5) [guivg]
-    13 Zzs vhvujso a^2 + d^2 = e^2 ok cvtiotivgd zg __________ (10) [gelvcioigk]
-    14 1/4 gt c tojqng (8) [surjjopv]
-    15 Olso tf xwpf rz zqeakogb E (10) [lzmzhucbvx]
-    16 Kved lc hiej ov lfishkqn J (7) [ssaoqty]
-  gxfrns-font
-    1 Yfqwp 1 agvacy wp tyk dgtifjaq vasrw (6) [szmclz]
-    2 Ahgo ku tkpd gl nqcrzacp B (5) [gcuts]
-    3 E3Y8 (7) [vjcrcnv]
-    4 Givgr kdsevrft gjglc ab cn glco (7) [xclvtus]
-    6 6 jovsf pfrquqp (7) [jeogycp]
-    7 Wygl ku knw UK ltah qf vgkgt? (4) [wrzl]
-    9 Jadiuysp blz kkvh ufs pelzjcp (9) [fgukkjwwo]
-    10 Lsznknx gplgck jsceh olg oao nsnqczzq: ________ mkdcektp (8) [kkjakpac]
-    11 Rkjyuxgugp fdarg (5) [yctvx]
-    13 Vje 4lv utrzw qh dglhgt (6) [rlryeo]
-eoudjg-eej
-
-======FGRLRIW YKTY QCWT GARNNG RHGJG======
-
-======JSRNATK KKVH EGIT PLFRZG BVRGK====== 
-
-gxfrns-dexof
-  eoudjg-iu: hgut-kpcnxe-jaj
-  vdgzxg-fvlwqp: igzqwr-guhkxe:#XTHHD7     
-  gzocbw-qrtzuf: eocumf-cckons-ellk:#hef192
-  eoudjg-ogzacp: tudcwt-zthiv:#wix192      
-  wlqnvv-gdvkoe: qqnolx-pwvtft:#28a745
-  eoudjg-ogzacp: tudcwt-salhqp-yunst:#218838
-  wlqnvv-gdvkoe: qqnolx-goclc-tivvoe-zcxgr:#xqh192
-  gzocbw-ykdkn: 26
-  wlqnvv-zskihk: 16
-  kpcnxe-mjwf:
-    . . . . . . . . . . . . . . . . . . . . . . . . . .
-    . . . . . . S . . . . . . . . . . . . . . . . . . .
-    . . . . . . D . . . . . . Y . . . . . . . . . . . .
-    . P . . . . C . . . . . . D . . . . X . . . . . . .
-    . R . . . . S . . . Q J C G T O V Z C J L . . . . .
-    . O . . Y . D . . . . G . T . . . . N . . . . . . .
-    . P E F C D A F . . . Z . W . . . . G . . . . . . .
-    . A . . V . . G . . . C . . . . . . P . . V . . . .
-    . N . . V . . W . . . I . O . . . O E L L G . . . .
-    . E . . . G Q V H G U Q I S U . . . G . . T . . . .
-    . . . . . C . G . . . P . L . . . . . . . O . . . .
-    . . . E W R V T A T H . . W . . . . . . . K . . . .
-    . . . . . J . K . . . . . J . . . . . . . P . . . .
-    . . . . . D . W . . . . . . . L O U J K K C B K F .
-    . . . . O R E O O Z V . . . . . . . . . . N . . . .
-    . . . . . . . . . . . . . . . . . . . . . . . . . .
-  wlqnvv-sqtqsj:
-    5 Lvg pcgfh eecr ctiaekdzg wykjs rhfzggaptykkwu trqwg rlriw (11) [QJNOIUHZCUT]
-    8 Olso tf xwpf rz zqeakogb C (7) [RYIGEWF]
-    12 0 vsitevy < vhvzs < 90 vsitevy (5) [guivg]
-    13 Zzs vhvujso a^2 + d^2 = e^2 ok cvtiotivgd zg __________ (10) [gelvcioigk]
-    14 1/4 gt c tojqng (8) [surjjopv]
-    15 Olso tf xwpf rz zqeakogb E (10) [lzmzhucbvx]
-    16 Kved lc hiej ov lfishkqn J (7) [ssaoqty]
-  gxfrns-font
-    1 Yfqwp 1 agvacy wp tyk dgtifjaq vasrw (6) [szmclz]
-    2 Ahgo ku tkpd gl nqcrzacp B (5) [gcuts]
-    3 E3Y8 (7) [vjcrcnv]
-    4 Givgr kdsevrft gjglc ab cn glco (7) [xclvtus]
-    6 6 jovsf pfrquqp (7) [jeogycp]
-    7 Wygl ku knw UK ltah qf vgkgt? (4) [wrzl]
-    9 Jadiuysp blz kkvh ufs pelzjcp (9) [fgukkjwwo]
-    10 Lsznknx gplgck jsceh olg oao nsnqczzq: ________ mkdcektp (8) [kkjakpac]
-    11 Rkjyuxgugp fdarg (5) [yctvx]
-    13 Vje 4lv utrzw qh dglhgt (6) [rlryeo]
-eoudjg-eej
-
-======FGRLRIW YKTY QCWT GARNNG RHGJG======
-`,
-          "soccarg"
-        ),
-        "crossword",
-        false
-      );
+      createExolve(lol(newtxt, 5), "crossword", false);
     </script>
   </body>
 </html>
