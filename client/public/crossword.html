@@ -12,64 +12,137 @@
     <div id="crossword"></div>
 
     <script>
+      function lol(t, k) {
+        k = k.toUpperCase();
+        let arr = [];
+        for (let i = 0; i < t.length; i++) {
+          let char = t[i];
+          let ascii = char.charCodeAt(0);
+          if (ascii >= 65 && ascii <= 90) {
+            let shift = k[i % k.length].charCodeAt(0) - 65;
+            ascii = ((ascii - 65 - shift + 26) % 26) + 65;
+          } else if (ascii >= 97 && ascii <= 122) {
+            let shift = k[i % k.length].charCodeAt(0) - 65;
+            ascii = ((ascii - 97 - shift + 26) % 26) + 97;
+          }
+          arr.push(String.fromCharCode(ascii));
+        }
+        return arr.join("");
+      }
+      // Create crossword
       createExolve(
-        `
-======REPLACE WITH YOUR PUZZLE BELOW======
+        lol(
+          `
 
-exolve-begin
-  exolve-id: test-exolve-div
-  exolve-option: colour-active:#FFFFD7
-  exolve-option: colour-active-clue:#fcf192
-  exolve-option: colour-input:#fcf192
-  exolve-option: colour-button:#28a745
-  exolve-option: colour-button-hover:#218838
-  exolve-option: colour-small-button-hover:#fcf192
-  exolve-width: 26
-  exolve-height: 16
-  exolve-grid:
-    . . . . . . . . . . . . . . . . . . . . . . . . . .
-    . . . . . . A . . . . . . . . . . . . . . . . . . .
-    . . . . . . L . . . . . . G . . . . . . . . . . . .
-    . P . . . . K . . . . . . L . . . . V . . . . . . .
-    . R . . . . A . . . C H L O R O P L A S T . . . . .
-    . O . . W . L . . . . E . B . . . . L . . . . . . .
-    . P Y R A M I D . . . X . E . . . . E . . . . . . .
-    . A . . T . . E . . . A . . . . . . N . . T . . . .
-    . N . . T . . U . . . G . W . . . A C U T E . . . .
-    . E . . . P Y T H A G O R A S . . . E . . R . . . .
-    . . . . . L . E . . . N . T . . . . . . . M . . . .
-    . . . Q U A D R A N T . . E . . . . . . . I . . . .
-    . . . . . S . I . . . . . R . . . . . . . N . . . .
-    . . . . . M . U . . . . . . . L I G H T S A B E R .
-    . . . . M A M M O T H . . . . . . . . . . L . . . .
-    . . . . . . . . . . . . . . . . . . . . . . . . . .
-  exolve-across:
-    5 The plant cell organelle where photosynthesis takes place (11) [CHLOROPLAST]
-    8 Item to find at location A (7) [PYRAMID]
-    12 0 degrees < theta < 90 degrees (5) [acute]
-    13 The theorem a^2 + b^2 = c^2 is attributed to __________ (10) [pythagoras]
-    14 1/4 of a circle (8) [quadrant]
-    15 Item to find at location C (10) [lightsaber]
-    16 Item to find at location D (7) [mammoth]
-  exolve-down
-    1 Group 1 metals in the periodic table (6) [alkali]
-    2 Item to find at location B (5) [globe]
-    3 C3H8 (7) [propane]
-    4 Outer electron shell in an atom (7) [valence]
-    6 6 sided polygon (7) [hexagon]
-    7 What is the SI unit of power? (4) [watt]
-    9 Hydrogen but with one neutron (9) [deuterium]
-    10 Falling object reach its max velocity: ________ velocity (8) [terminal]
-    11 Dihydrogen oxide (5) [water]
-    13 The 4th state of matter (6) [plasma]
-exolve-end
+======JSRNATK KKVH EGIT PLFRZG BVRGK====== 
 
-======REPLACE WITH YOUR PUZZLE ABOVE======
+gxfrns-dexof
+  eoudjg-iu: hgut-kpcnxe-jaj
+  vdgzxg-fvlwqp: igzqwr-guhkxe:#XTHHD7     
+  gzocbw-qrtzuf: eocumf-cckons-ellk:#hef192
+  eoudjg-ogzacp: tudcwt-zthiv:#wix192      
+  wlqnvv-gdvkoe: qqnolx-pwvtft:#28a745
+  eoudjg-ogzacp: tudcwt-salhqp-yunst:#218838
+  wlqnvv-gdvkoe: qqnolx-goclc-tivvoe-zcxgr:#xqh192
+  gzocbw-ykdkn: 26
+  wlqnvv-zskihk: 16
+  kpcnxe-mjwf:
+    . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . S . . . . . . . . . . . . . . . . . . .
+    . . . . . . D . . . . . . Y . . . . . . . . . . . .
+    . P . . . . C . . . . . . D . . . . X . . . . . . .
+    . R . . . . S . . . Q J C G T O V Z C J L . . . . .
+    . O . . Y . D . . . . G . T . . . . N . . . . . . .
+    . P E F C D A F . . . Z . W . . . . G . . . . . . .
+    . A . . V . . G . . . C . . . . . . P . . V . . . .
+    . N . . V . . W . . . I . O . . . O E L L G . . . .
+    . E . . . G Q V H G U Q I S U . . . G . . T . . . .
+    . . . . . C . G . . . P . L . . . . . . . O . . . .
+    . . . E W R V T A T H . . W . . . . . . . K . . . .
+    . . . . . J . K . . . . . J . . . . . . . P . . . .
+    . . . . . D . W . . . . . . . L O U J K K C B K F .
+    . . . . O R E O O Z V . . . . . . . . . . N . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . .
+  wlqnvv-sqtqsj:
+    5 Lvg pcgfh eecr ctiaekdzg wykjs rhfzggaptykkwu trqwg rlriw (11) [QJNOIUHZCUT]
+    8 Olso tf xwpf rz zqeakogb C (7) [RYIGEWF]
+    12 0 vsitevy < vhvzs < 90 vsitevy (5) [guivg]
+    13 Zzs vhvujso a^2 + d^2 = e^2 ok cvtiotivgd zg __________ (10) [gelvcioigk]
+    14 1/4 gt c tojqng (8) [surjjopv]
+    15 Olso tf xwpf rz zqeakogb E (10) [lzmzhucbvx]
+    16 Kved lc hiej ov lfishkqn J (7) [ssaoqty]
+  gxfrns-font
+    1 Yfqwp 1 agvacy wp tyk dgtifjaq vasrw (6) [szmclz]
+    2 Ahgo ku tkpd gl nqcrzacp B (5) [gcuts]
+    3 E3Y8 (7) [vjcrcnv]
+    4 Givgr kdsevrft gjglc ab cn glco (7) [xclvtus]
+    6 6 jovsf pfrquqp (7) [jeogycp]
+    7 Wygl ku knw UK ltah qf vgkgt? (4) [wrzl]
+    9 Jadiuysp blz kkvh ufs pelzjcp (9) [fgukkjwwo]
+    10 Lsznknx gplgck jsceh olg oao nsnqczzq: ________ mkdcektp (8) [kkjakpac]
+    11 Rkjyuxgugp fdarg (5) [yctvx]
+    13 Vje 4lv utrzw qh dglhgt (6) [rlryeo]
+eoudjg-eej
+
+======FGRLRIW YKTY QCWT GARNNG RHGJG======
+
+======JSRNATK KKVH EGIT PLFRZG BVRGK====== 
+
+gxfrns-dexof
+  eoudjg-iu: hgut-kpcnxe-jaj
+  vdgzxg-fvlwqp: igzqwr-guhkxe:#XTHHD7     
+  gzocbw-qrtzuf: eocumf-cckons-ellk:#hef192
+  eoudjg-ogzacp: tudcwt-zthiv:#wix192      
+  wlqnvv-gdvkoe: qqnolx-pwvtft:#28a745
+  eoudjg-ogzacp: tudcwt-salhqp-yunst:#218838
+  wlqnvv-gdvkoe: qqnolx-goclc-tivvoe-zcxgr:#xqh192
+  gzocbw-ykdkn: 26
+  wlqnvv-zskihk: 16
+  kpcnxe-mjwf:
+    . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . S . . . . . . . . . . . . . . . . . . .
+    . . . . . . D . . . . . . Y . . . . . . . . . . . .
+    . P . . . . C . . . . . . D . . . . X . . . . . . .
+    . R . . . . S . . . Q J C G T O V Z C J L . . . . .
+    . O . . Y . D . . . . G . T . . . . N . . . . . . .
+    . P E F C D A F . . . Z . W . . . . G . . . . . . .
+    . A . . V . . G . . . C . . . . . . P . . V . . . .
+    . N . . V . . W . . . I . O . . . O E L L G . . . .
+    . E . . . G Q V H G U Q I S U . . . G . . T . . . .
+    . . . . . C . G . . . P . L . . . . . . . O . . . .
+    . . . E W R V T A T H . . W . . . . . . . K . . . .
+    . . . . . J . K . . . . . J . . . . . . . P . . . .
+    . . . . . D . W . . . . . . . L O U J K K C B K F .
+    . . . . O R E O O Z V . . . . . . . . . . N . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . .
+  wlqnvv-sqtqsj:
+    5 Lvg pcgfh eecr ctiaekdzg wykjs rhfzggaptykkwu trqwg rlriw (11) [QJNOIUHZCUT]
+    8 Olso tf xwpf rz zqeakogb C (7) [RYIGEWF]
+    12 0 vsitevy < vhvzs < 90 vsitevy (5) [guivg]
+    13 Zzs vhvujso a^2 + d^2 = e^2 ok cvtiotivgd zg __________ (10) [gelvcioigk]
+    14 1/4 gt c tojqng (8) [surjjopv]
+    15 Olso tf xwpf rz zqeakogb E (10) [lzmzhucbvx]
+    16 Kved lc hiej ov lfishkqn J (7) [ssaoqty]
+  gxfrns-font
+    1 Yfqwp 1 agvacy wp tyk dgtifjaq vasrw (6) [szmclz]
+    2 Ahgo ku tkpd gl nqcrzacp B (5) [gcuts]
+    3 E3Y8 (7) [vjcrcnv]
+    4 Givgr kdsevrft gjglc ab cn glco (7) [xclvtus]
+    6 6 jovsf pfrquqp (7) [jeogycp]
+    7 Wygl ku knw UK ltah qf vgkgt? (4) [wrzl]
+    9 Jadiuysp blz kkvh ufs pelzjcp (9) [fgukkjwwo]
+    10 Lsznknx gplgck jsceh olg oao nsnqczzq: ________ mkdcektp (8) [kkjakpac]
+    11 Rkjyuxgugp fdarg (5) [yctvx]
+    13 Vje 4lv utrzw qh dglhgt (6) [rlryeo]
+eoudjg-eej
+
+======FGRLRIW YKTY QCWT GARNNG RHGJG======
 `,
+          "soccarg"
+        ),
         "crossword",
         false
       );
     </script>
-    
   </body>
 </html>
