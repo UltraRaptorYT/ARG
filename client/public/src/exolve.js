@@ -7135,7 +7135,24 @@ Exolve.prototype.checkCurr = function () {
 
 Exolve.prototype.checkAllHandler = function (ev) {
   isAllCorrect = this.checkAll();
-  alert(isAllCorrect);
+  if (isAllCorrect) {
+    var idxArr = [
+      6, 11, 23, 28, 29, 31, 34, 42, 44, 51, 53, 70, 78, 80, 83, 92, 100,
+    ];
+    var boxArr = document.querySelectorAll("#xlv1-grid g");
+    for (var idx of idxArr) {
+      boxArr[idx].querySelector("rect").style.fill = "pink";
+    }
+    document.getElementById("xlv1-curr-clue").style.display = "block"
+    document.getElementById("xlv1-curr-clue").style.textAlign = "center";
+    document.getElementById("xlv1-curr-clue").innerHTML = `<span id="xlv1-curr-clue-text" style="text-align:center;">Look at the highlighted letters carefully! Click Next stage to move on</span>`
+    document.getElementById("xlv1-button-row-1").innerHTML += `
+      <button id="next" class="xlv-button">Next stage</button>
+      `;
+    document.getElementById("next").addEventListener("click", () => {
+      window.location.href = "./anagram.html";
+    });
+  }
 };
 
 Exolve.prototype.checkAll = function (conf = true, erase = true) {

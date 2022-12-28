@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>SOCC ARG</title>
+  </head>
+  <body>
+    <div id="bg">Act 3</div>
+    <script>
+      var crosswordObj = localStorage.getItem("xlvstate:test-exolve-div");
+      try {
+        if (
+          JSON.parse(crosswordObj).state ==
+            "................................A.........................L......G.............P....K......L....V........R....A...CHLOROPLAST......O..W.L....E.B....L........PYRAMID...X.E....E........A..T..E...A......N..T.....N..T..U...G.W...ACUTE.....E...PYTHAGORAS...E..R.........L.E...N.T.......M.......QUADRANT..E.......I.........S.I.....R.......N.........M.U.......LIGHTSABER.....MAMMOTH..........L.............................." &&
+          JSON.parse(crosswordObj).notes.counter == 17
+        ) {
+          console.log("succcess");
+        } else {
+          history.back();
+        }
+      } catch (err) {
+        history.back();
+      }
+      var letterArr = [];
+    </script>
+  </body>
+</html>

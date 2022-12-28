@@ -541,3 +541,11 @@ a.xlv-toggler:hover {
 .xlv-solution {
   text-transform: uppercase;
 }
+
+#next {
+  background-color: #007bff !important;
+}
+
+#next:hover {
+  background-color: #006bdd !important;
+}
