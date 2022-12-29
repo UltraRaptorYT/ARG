@@ -4,27 +4,297 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/main.css" />
     <title>SOCC ARG</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/anagram.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
-  <body>
+  <body class="text-white">
     <div id="bg">Act 3</div>
+    <div class="d-flex flex-column container py-3">
+      <h1 class="text-center">Welcome to anagram!</h1>
+      <h5 class="text-center">
+        Using the letters below, form 3 words to get the hidden location!
+      </h5>
+      <div id="letterList"></div>
+      <h6 class="text-xl align-self-center m-0 p-0 text-white pt-2">Word #1</h6>
+      <div class="wrapper" id="secretWord1">
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+      </div>
+      <h6 class="text-xl align-self-center m-0 p-0 text-white pt-2">Word #2</h6>
+      <div class="wrapper" id="secretWord2">
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+      </div>
+      <h6 class="text-xl align-self-center m-0 p-0 text-white pt-2">Word #3</h6>
+      <div class="wrapper" id="secretWord3">
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+        <div class="drag-container"></div>
+      </div>
+      <div class="d-flex w-50 justify-content-around pt-4 mx-auto">
+        <button class="btn btn-secondary" id="reset">Reset</button>
+        <button class="btn btn-success" id="check">Check</button>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+
     <script>
       var crosswordObj = localStorage.getItem("xlvstate:test-exolve-div");
       try {
         if (
-          JSON.parse(crosswordObj).state ==
-            "................................A.........................L......G.............P....K......L....V........R....A...CHLOROPLAST......O..W.L....E.B....L........PYRAMID...X.E....E........A..T..E...A......N..T.....N..T..U...G.W...ACUTE.....E...PYTHAGORAS...E..R.........L.E...N.T.......M.......QUADRANT..E.......I.........S.I.....R.......N.........M.U.......LIGHTSABER.....MAMMOTH..........L.............................." &&
-          JSON.parse(crosswordObj).notes.counter == 17
+          !(
+            JSON.parse(crosswordObj).state ==
+              "................................A.........................L......G.............P....K......L....V........R....A...CHLOROPLAST......O..W.L....E.B....L........PYRAMID...X.E....E........A..T..E...A......N..T.....N..T..U...G.W...ACUTE.....E...PYTHAGORAS...E..R.........L.E...N.T.......M.......QUADRANT..E.......I.........S.I.....R.......N.........M.U.......LIGHTSABER.....MAMMOTH..........L.............................." &&
+            JSON.parse(crosswordObj).notes.counter == 17
+          )
         ) {
-          console.log("succcess");
-        } else {
           history.back();
         }
       } catch (err) {
         history.back();
       }
-      var letterArr = [];
+      var letterArr = [
+        "E",
+        "E",
+        "R",
+        "E",
+        "I",
+        "Q",
+        "A",
+        "A",
+        "S",
+        "P",
+        "E",
+        "V",
+        "L",
+        "O",
+        "N",
+        "N",
+        "U",
+      ];
+      function resetLetter() {
+        letterArr.sort(() => Math.random() - 0.5);
+        document.getElementById("letterList").innerHTML = "";
+        for (var i = 0; i < letterArr.length; i++) {
+          var template = `<div class='drag-item' draggable='true'>${letterArr[i]}</div>`;
+          document.getElementById("letterList").innerHTML += template;
+        }
+        var containerArr = document.querySelectorAll(
+          ".wrapper .drag-container"
+        );
+        for (container of containerArr) {
+          container.innerHTML = "";
+        }
+        var targets = document.querySelectorAll(".drag-container");
+        [].forEach.call(targets, function (target) {
+          addTargetEvents(target);
+        });
+        var listItems = document.querySelectorAll(".drag-item");
+        [].forEach.call(listItems, function (item) {
+          addEventsDragAndDrop(item);
+        });
+      }
+
+      resetLetter();
+
+      function dragStart(e) {
+        dragSrcEl = this;
+      }
+
+      function dragEnter(e) {
+        this.classList.add("drag-over");
+      }
+
+      function dragLeave(e) {
+        e.stopPropagation();
+        this.classList.remove("drag-over");
+      }
+
+      function dragOver(e) {
+        e.preventDefault();
+        return false;
+      }
+
+      function dragDrop(e) {
+        if (dragSrcEl.classList.contains("drag-item")) {
+          this.appendChild(dragSrcEl);
+          if (this.children.length > 1) {
+            document.getElementById("letterList").appendChild(this.children[0]);
+          }
+          $("#save").removeClass("btn-secondary");
+          $("#save").addClass("btn-primary");
+          $("#save").prop("disabled", false);
+        }
+        var listItems = document.querySelectorAll(".drag-item");
+        [].forEach.call(listItems, function (item) {
+          addEventsDragAndDrop(item);
+        });
+        return false;
+      }
+
+      function dragEnd(e) {
+        var listItems = document.querySelectorAll(".drag-container");
+        [].forEach.call(listItems, function (item) {
+          item.classList.remove("drag-over");
+        });
+      }
+
+      function touchStart(e) {
+        console.log(e);
+        this.classList.add("drag-item--touchmove");
+      }
+
+      var scrollDelay = 0;
+      var scrollDirection = 1;
+      function pageScroll(a, b) {
+        window.scrollBy(0, scrollDirection); // horizontal and vertical scroll increments
+        scrollDelay = setTimeout(pageScroll, 5); // scrolls every 100 milliseconds
+
+        if (a > window.innerHeight - b) {
+          scrollDirection = 1;
+        }
+        if (a < 0 + b) {
+          scrollDirection = -1 * scrollDirection;
+        }
+      }
+
+      var x = 1;
+      function touchMove(e) {
+        var touchLocation = e.targetTouches[0],
+          w = this.offsetWidth,
+          h = this.offsetHeight;
+
+        lastMove = e;
+        touchEl = this;
+        this.style.width = w + "px";
+        this.style.height = h + "px";
+        this.style.position = "fixed";
+        this.style.left = touchLocation.clientX - w / 2 + "px";
+        this.style.top = touchLocation.clientY - h / 2 + "px";
+
+        if (
+          touchLocation.clientY > window.innerHeight - h ||
+          touchLocation.clientY < 0 + h
+        ) {
+          if (x === 1) {
+            x = 0;
+            pageScroll(touchLocation.clientY, h);
+          }
+        } else {
+          clearTimeout(scrollDelay);
+          x = 1;
+        }
+      }
+
+      function touchEnd(e) {
+        var box1 = this.getBoundingClientRect(),
+          x1 = box1.left,
+          y1 = box1.top,
+          h1 = this.offsetHeight,
+          w1 = this.offsetWidth,
+          b1 = y1 + h1,
+          r1 = x1 + w1;
+        var targets = document.querySelectorAll(".drag-container");
+        [].forEach.call(targets, function (target) {
+          var box2 = target.getBoundingClientRect(),
+            x2 = box2.left,
+            y2 = box2.top,
+            h2 = target.offsetHeight,
+            w2 = target.offsetWidth,
+            b2 = y2 + h2,
+            r2 = x2 + w2;
+
+          if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
+            return false;
+          } else {
+            if (touchEl.classList.contains("drag-item")) {
+              target.appendChild(touchEl);
+              if (target.children.length > 1) {
+                document
+                  .getElementById("letterList")
+                  .appendChild(this.children[0]);
+              }
+              $("#save").removeClass("btn-secondary");
+              $("#save").addClass("btn-primary");
+              $("#save").prop("disabled", false);
+            }
+
+            var listItems = document.querySelectorAll(".drag-item");
+            [].forEach.call(listItems, function (item) {
+              addEventsDragAndDrop(item);
+            });
+          }
+        });
+
+        this.removeAttribute("style");
+        this.classList.remove("drag-item--touchmove");
+        clearTimeout(scrollDelay);
+        x = 1;
+      }
+
+      function addEventsDragAndDrop(el) {
+        el.addEventListener("dragstart", dragStart, false);
+        el.addEventListener("dragend", dragEnd, false);
+        el.addEventListener("touchstart", touchStart, {
+          once: false,
+          passive: true,
+        });
+        el.addEventListener("touchmove", touchMove, {
+          once: false,
+          passive: true,
+        });
+        el.addEventListener("touchend", touchEnd, false);
+      }
+
+      function addTargetEvents(target) {
+        target.addEventListener("dragover", dragOver, false);
+        target.addEventListener("dragenter", dragEnter, false);
+        target.addEventListener("dragleave", dragLeave, false);
+        target.addEventListener("drop", dragDrop, false);
+      }
+
+      var targets = document.querySelectorAll(".drag-container");
+      [].forEach.call(targets, function (target) {
+        addTargetEvents(target);
+      });
+
+      var listItems = document.querySelectorAll(".drag-item");
+      [].forEach.call(listItems, function (item) {
+        addEventsDragAndDrop(item);
+      });
+      document.getElementById("reset").addEventListener("click", () => {
+        resetLetter();
+      });
+      document.getElementById("check").addEventListener("click", () => {
+        resetLetter();
+      });
     </script>
+    <script src="./src/check.js"></script>
   </body>
 </html>
