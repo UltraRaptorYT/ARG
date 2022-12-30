@@ -11,16 +11,21 @@
     />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/blackwall.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <div id="bg">Act 4</div>
     <div
       id="container"
-      class="p-12 rounded-xl flex flex-col container mx-5 max-w-xl justify-center items-center gap-6"
+      class="p-12 rounded-xl flex flex-col container mx-5 max-w-xl justify-center items-center gap-3"
     >
-      <h4 class="w-11/12">Black wall says:</h4>
-      <h2 id="question" class="text-2xl font-bold text-center pb-8"></h2>
+      <div class="flex justify-around w-full">
+        <h4 class="pl-2 w-full">Black wall says:</h4>
+        <small class="small" id="questionNo"></small>
+      </div>
+      <h2 id="question" class="text-xl md:text-2xl font-bold text-center pt-3"></h2>
+      <div class="small text-red-500 font-bold opacity-0 pb-3" id="err">Answer wrong!</div>
       <div class="flex gap-5 w-full justify-center items-center">
         <input
           id="answer"
