@@ -406,3 +406,7 @@ input.button:active {
     --top: 1;
   }
 }
+
+body {
+  background: #262626;
+}
