@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="./css/chatbot.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div id="container">
+      <section class="stage">
+        <figure class="ball" id="bot">
+          <span class="shadow"></span>
+          <span class="iris sleep"></span>
+        </figure>
+      </section>
+    </div>
+    <script>
+      let vh = 0.01 * window.innerHeight;
+      document.documentElement.style.setProperty("--vh", vh + "px");
+    </script>
+    <script src="./src/start.js"></script>
+  </body>
+</html>
