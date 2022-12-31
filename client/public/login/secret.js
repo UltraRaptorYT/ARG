@@ -1,8 +1,14 @@
 const p = document.createElement("h3");
+
+document.getElementById("password-input").addEventListener("keydown", (e) => {
+  if (isNaN(parseInt(e.key))) {
+    
+  }
+});
 p.style.marginTop = "20px";
 document.addEventListener("DOMContentLoaded", () => {
   const hashedPassword =
-    "8115afcd47340e9ce2eda249a5436759b8d91e918ac5d9d53ce0a9488894e9fb";
+    "98f3aaa79f6ba1759e046f873955785d869eec78b60ff7ad2f1bb62d50ea8a0a";
   const passwordInput = document.getElementById("password-input");
   const submitButton = document.getElementById("password-submit");
   submitButton.addEventListener("click", (event) => {
