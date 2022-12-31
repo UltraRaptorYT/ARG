@@ -17,5 +17,5 @@ form {
 }
 
 body {
-  height: fit-content;
+  min-height: fit-content;
 }

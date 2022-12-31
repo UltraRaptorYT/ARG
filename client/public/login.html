@@ -26,6 +26,13 @@
         class="flex flex-col p-5 justify-center items-center gap-2 rounded-[25px] mx-3 w-4/5 max-w-xl my-2"
       >
         <h2 class="text-2xl font-bold">Login</h2>
+        <p class="text-center">Welcome to SOCC ARG!</p>
+        <p>
+          When signing up, take note that you will be faced with many challenges
+          and games ahead. Use all the necessary tools online to assist you in
+          any way possible!
+        </p>
+        <p class="text-center">All the best!</p>
         <label>
           E-Mail (IChat)
           <input
@@ -44,6 +51,7 @@
             name="password"
             id="password"
             placeholder="Password"
+            pattern="^.{6,}$"
             required
           />
         </label>
