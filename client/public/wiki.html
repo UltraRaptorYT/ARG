@@ -9,15 +9,15 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="secret.js" defer></script>
+    <script src="./src/secret.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link href="index.css" rel="stylesheet" />
+    <link href="./css/index.css" rel="stylesheet" />
     <title>SP - Wikipedia</title>
-    <link rel="shortcut icon" href="./Wikipedia-logo-v2.png" />
+    <link rel="shortcut icon" href="./src/Wikipedia-logo-v2.png" />
   </head>
 
   <body class="body d-flex flex-column">
@@ -26,17 +26,17 @@
       <!-- laptop -->
       <img
         class="splogo1 d-none d-lg-block"
-        src="../src/img/Singapore_Polytechnic_logo.png"
+        src="./src/img/Singapore_Polytechnic_logo.png"
       />
       <!-- tablet -->
       <img
         class="splogo2 d-none d-md-block d-lg-none"
-        src="../src/img/Singapore_Polytechnic_logo.png"
+        src="./src/img/Singapore_Polytechnic_logo.png"
       />
       <!-- mobile -->
       <img
         class="splogo3 d-sm-block d-md-none"
-        src="../src/img/Singapore_Polytechnic_logo.png"
+        src="./src/img/Singapore_Polytechnic_logo.png"
       />
 
       <!-- tabs -->
@@ -492,13 +492,13 @@
           <div class="line"></div>
           <img
             class="lock mx-auto d-block"
-            src="../src/img/lockpurple.png"
+            src="./src/img/lockpurple.png"
             alt="lockpurple.png"
           />
           <h2 data-text="Secret" style="margin-bottom: 5px;">Secret</h2>
           <div id="password" class="text-center">
-            <div class="col-6 mx-auto">
-              <input type="text" pattern="^[0-9]+$" id="password-input" class="form-control" />
+            <div class="col-12 col-md-6 col-lg-4 mx-auto">
+              <input type="number" id="password-input" class="form-control" />
               <input type="submit" id="password-submit" class="button" />
             </div>
           </div>
