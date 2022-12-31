@@ -1,0 +1,26 @@
+body {
+  overflow: hidden;
+  background: black;
+}
+
+#content {
+  position: relative;
+  margin-top: var(--marginTop);
+  margin-left: var(--marginLeft);
+  width: var(--vw);
+  height: var(--vh);
+}
+
+#toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#size {
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  right: 0;
+  left: 0;
+}
