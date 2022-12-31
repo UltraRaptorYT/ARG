@@ -14,6 +14,7 @@ body {
   background-attachment: fixed;
   /* rescale */
   background-size: cover;
+  overflow-x: hidden;
 }
 
 /* card */

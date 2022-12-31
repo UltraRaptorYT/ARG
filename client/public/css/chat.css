@@ -250,6 +250,11 @@ input {
   margin: 0;
   padding: 0;
   opacity: 1;
+  font-size: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
 }
 
 #back.animate {
@@ -267,3 +272,5 @@ input {
     z-index: -1;
   }
 }
+
+

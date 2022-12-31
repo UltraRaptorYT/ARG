@@ -1,5 +1,7 @@
 var chat = document.getElementById("chat");
 
+var mute = document.getElementById("mute");
+
 const URL =
   "https://us-central1-arg-test-3267b.cloudfunctions.net/app/api/chat";
 
@@ -55,6 +57,7 @@ function playText(text) {
   if (speechSynthesis.speaking) return;
   utterance.text = text;
   utterance.rate = 1;
+  checkMute();
   if (mute.dataset.mute == "false") {
     synth.speak(utterance);
   }
@@ -68,17 +71,32 @@ function scrollBottom() {
   chat.scrollTo(0, chat.scrollHeight);
 }
 
-var mute = document.getElementById("mute");
-
 mute.addEventListener("click", () => {
   if (mute.dataset.mute == "true") {
     mute.children[0].classList.add("bi-volume-up-fill");
     mute.children[0].classList.remove("bi-volume-mute-fill");
     mute.dataset.mute = "false";
+    localStorage.setItem("mute", "false");
   } else {
     mute.children[0].classList.remove("bi-volume-up-fill");
     mute.children[0].classList.add("bi-volume-mute-fill");
     mute.dataset.mute = "true";
+    localStorage.setItem("mute", "true");
     stopText();
   }
 });
+
+function checkMute() {
+  if (localStorage.getItem("mute")) {
+    mute.dataset.mute = localStorage.getItem("mute");
+    if (mute.dataset.mute == "false") {
+      mute.children[0].classList.add("bi-volume-up-fill");
+      mute.children[0].classList.remove("bi-volume-mute-fill");
+    } else {
+      mute.children[0].classList.remove("bi-volume-up-fill");
+      mute.children[0].classList.add("bi-volume-mute-fill");
+    }
+  } else {
+    localStorage.setItem("mute", "false");
+  }
+}

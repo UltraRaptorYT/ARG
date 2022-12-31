@@ -15,7 +15,9 @@ bot.addEventListener("click", () => {
       document.getElementById("nav").classList.remove("opacity-0");
       document.getElementById("chatBody").classList.remove("opacity-0");
       document.getElementById("container").classList.remove("absolute");
-      autoReply(`Hello Traveller! Welcome to AI World!`);
+      autoReply(
+        `Hello Traveller! Welcome to Apeiropolis! I am Constantine Dimitris Papageorgiou the third or you can call me Bob!`
+      );
     });
   }
 });

@@ -20,7 +20,6 @@
   padding: 0;
   opacity: 1;
   z-index: 1000;
-  color: rgb(255, 255, 209);
   color: white;
   font-size: 10vh;
   display: flex;
@@ -45,6 +44,10 @@ nav ul {
 }
 
 body {
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
+}
+.height {
   width: 100vw;
   height: calc(var(--vh, 1vh) * 100);
 }
