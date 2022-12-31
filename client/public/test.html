@@ -1,53 +1,48 @@
 <!DOCTYPE html>
-
 <html>
   <head>
-    <title>Gesture Interactions - A-Frame & AR.js</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="styles.css">
-
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="gesture-detector.js"></script>
-    <script src="gesture-handler.js"></script>
+    <style>
+      #pinch-div {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+    </style>
   </head>
-
   <body>
-    <a-scene
-      arjs
-      embedded
-      renderer="logarithmicDepthBuffer: true;"
-      vr-mode-ui="enabled: false"
-      gesture-detector
-      id="scene"
-    >
-      <a-assets>
-        <a-asset-item
-          id="bowser"
-          src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
-        >
-        </a-asset-item>
-      </a-assets>
+    <div id="pinch-div"></div>
+    <script>
+      let startDistance = 0;
+      let currentDistance = 0;
 
-      <a-marker
-        preset="hiro"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-      >
-        <a-entity
-          id="bowser-model"
-          gltf-model="#bowser"
-          position="0 0 0"
-          scale="0.05 0.05 0.05"
-          class="clickable"
-          gesture-handler
-        >
-        </a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
+      const pinchDiv = document.getElementById("pinch-div");
+
+      pinchDiv.addEventListener("touchstart", (event) => {
+        if (event.touches.length >= 2) {
+          // Calculate the distance between the two fingers
+          const x1 = event.touches[0].clientX;
+          const y1 = event.touches[0].clientY;
+          const x2 = event.touches[1].clientX;
+          const y2 = event.touches[1].clientY;
+          startDistance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+        }
+      });
+
+      pinchDiv.addEventListener("touchmove", (event) => {
+        if (event.touches.length >= 2) {
+          // Calculate the distance between the two fingers
+          const x1 = event.touches[0].clientX;
+          const y1 = event.touches[0].clientY;
+          const x2 = event.touches[1].clientX;
+          const y2 = event.touches[1].clientY;
+          currentDistance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+
+          // If the distance between the fingers has increased, it is a pinch gesture
+          if (currentDistance > startDistance) {
+            alert("Pinch detected");
+          }
+        }
+      });
+    </script>
   </body>
 </html>
