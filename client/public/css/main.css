@@ -45,6 +45,8 @@ nav ul {
 }
 
 body {
-  width: 100vw;
-  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  min-height: calc(var(--vh, 1vh) * 100);
+  height: fit-content;
 }
+
