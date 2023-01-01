@@ -16,3 +16,8 @@ form {
   border-radius: 25px;
 }
 
+body {
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: fit-content;
+}
