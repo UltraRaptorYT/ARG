@@ -279,8 +279,8 @@ input {
 }
 .typing span {
   content: "";
-  -webkit-animation: blink 1.5s infinite;
-  animation: blink 1.5s infinite;
+  -webkit-animation: blinking 1.5s infinite;
+  animation: blinking 1.5s infinite;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   height: 10px;
@@ -303,7 +303,7 @@ input {
   margin-left: 30px;
 }
 
-@-webkit-keyframes blink {
+@-webkit-keyframes blinking {
   0% {
     opacity: 0.1;
   }
@@ -315,7 +315,7 @@ input {
   }
 }
 
-@keyframes blink {
+@keyframes blinking {
   0% {
     opacity: 0.1;
   }

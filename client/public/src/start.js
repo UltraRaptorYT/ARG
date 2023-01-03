@@ -9,7 +9,6 @@ bot.addEventListener("click", () => {
       setTimeout(() => {
         bot.querySelector(".iris").classList.add("move");
       }, 1000);
-      console.log("Morning");
       document.querySelector("#back").classList.add("animate");
       document.body.classList.add(`body`);
       document.getElementById("nav").classList.remove("opacity-0");
