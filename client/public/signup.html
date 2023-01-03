@@ -4,69 +4,166 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Singapore Polytechnic</title>
-    <style>
-      .hide {
-        display: none;
-      }
-    </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script> -->
+    <title>SOCC ARG</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/signup.css" />
   </head>
-  <body>
-    <form id="signup-form">
-      <label>
-        E-Mail (IChat)
-        <input type="text" name="email" id="email" placeholder="Email" required />
-      </label>
-      <label>
-        Full Name
-        <input type="text" name="full_name" id="fullName" placeholder="Full Name" required />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" id="password" placeholder="Password" required />
-      </label>
-      <label>
-        Admin Number
-        <input type="text" name="admin_number" id="adminNumber" placeholder="Admin Number" required />
-      </label>
-      <label>
-        Class
-        <input type="text" name="student_class" id="studentClass" placeholder="Class (e.g. DIT/FT/1A/01)" required />
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
+  <body class="bg-slate-800">
+    <div
+      class="flex flex-col h-full w-full justify-center items-center my-6 md:my-0"
+    >
+      <form
+        id="signup-form"
+        class="flex flex-col p-5 justify-center items-center gap-2 rounded-[25px] mx-3 w-4/5 max-w-xl my-2"
+      >
+        <h2 class="text-2xl font-bold">Sign Up</h2>
+        <p class="text-center">Welcome to SOCC ARG!</p>
+        <p>
+          When signing up, take note that you will be faced with many challenges
+          and games ahead. Use all the necessary tools online to assist you in
+          any way possible!
+        </p>
+        <p class="text-center">All the best!</p>
+        <label>
+          E-Mail (IChat)
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Email (e.g. HONGYU.21@ichat.sp.edu.sg)"
+            pattern="[a-zA-Z]+.\d\d@ichat.sp.edu.sg"
+            title="e.g. HONGYU.21@ichat.sp.edu.sg"
+            required
+          />
+        </label>
+        <label>
+          Full Name
+          <input
+            type="text"
+            name="full_name"
+            id="fullName"
+            placeholder="Full Name"
+            required
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password"
+            name="password"
+            id="password"
+            pattern="^.{6,}$"
+            placeholder="Password (at least 6 characters long)"
+            title="At least 6 characters long"
+            required
+          />
+        </label>
+        <label>
+          Admin Number [Exclude P]
+          <input
+            type="text"
+            name="admin_number"
+            id="adminNumber"
+            placeholder="Admin Number (e.g. 2100775)"
+            pattern="[0-9]{7}"
+            title="Exclude P and be at least 7 characters long"
+            required
+          />
+        </label>
+        <label>
+          Class
+          <input
+            type="text"
+            name="student_class"
+            id="studentClass"
+            placeholder="Class (e.g. DIT/FT/1A/01)"
+            pattern="^D[A-Z]{1,}\/FT\/\d+[A-Z]\/.*$"
+            title="e.g. DIT/FT/1A/01"
+            required
+          />
+        </label>
+        <button
+          type="submit"
+          class="bg-slate-500 hovver:bg-slate-700 text-white p-2 rounded-full"
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
   </body>
   <script type="module">
     import supabase from "./src/supabase.js";
 
     // Client side validation - Please validate on the backend too (Using RLS).
-    const classRegex = /([A-Z]+)\/(FT)\/[0-3][A-B]\/\d+$/g;
-    const adminNumberRange = [0, 2_300_000];
+    // const classRegex = /^D[A-Z]{1,}\/FT\/\d+[A-Z]\/.*/g;
+    const adminNumberRange = [1_300_000, 2_400_000];
 
-    function validateStudentClass(studentClass) {
-      return classRegex.test(studentClass);
-    }
+    // function validateStudentClass(studentClass) {
+    //   if (classRegex.test(studentClass)) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // }
 
     function validateAdminNumber(adminNumber) {
-      return !isNaN(adminNumber) && adminNumber >= adminNumberRange[0] && adminNumber <= adminNumberRange[1];
+      return (
+        !isNaN(adminNumber) &&
+        adminNumber >= adminNumberRange[0] &&
+        adminNumber <= adminNumberRange[1]
+      );
     }
 
-    async function signUp({ full_name, email, password, admin_number, student_class }) {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name,
-            admin_number,
-            student_class,
+    async function signUp({
+      full_name,
+      email,
+      password,
+      admin_number,
+      student_class,
+    }) {
+      await supabase.auth
+        .signUp({
+          email,
+          password,
+          options: {
+            data: {
+              full_name,
+              admin_number,
+              student_class,
+            },
           },
-        },
-      });
+        })
+        .then(({ data, error }) => {
+          if (error) {
+            alert(error);
+          } else {
+            document.getElementById("signup-form").innerHTML = `
+            <h2 class="text-2xl font-bold text-center">Please check your email <br/>for the confirmation email.</h2>
+            <div id="countdown"></div>
+            <button onclick="window.location.href = './login.html'" class="bg-slate-500 hovver:bg-slate-700 text-white p-2 rounded-full">
+              Login
+            </button>
+          `;
+            var timeleft = 5;
+            var downloadTimer = setInterval(function () {
+              if (timeleft <= 0) {
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = "Finished";
+                window.location.href = "./login.html";
+              } else {
+                document.getElementById("countdown").innerHTML =
+                  `Redirecting to login page in ${timeleft} seconds.`;
+              }
+              timeleft -= 1;
+            }, 1000);
+          }
+        });
     }
 
     const form = document.getElementById("signup-form");
@@ -78,13 +175,12 @@
       const password = formData.get("password");
       const _admin_number = formData.get("admin_number");
       const student_class = formData.get("student_class");
-
       const admin_number = parseInt(_admin_number, 10);
 
-      if (!validateStudentClass(student_class)) {
-        alert("Invalid student class");
-        return;
-      }
+      // if (!validateStudentClass(student_class)) {
+      //   alert("Invalid student class");
+      //   return;
+      // }
       if (!validateAdminNumber(admin_number)) {
         alert("Invalid admin number");
         return;
