@@ -18,5 +18,8 @@
     "http": "^0.0.1-security",
     "serve-static": "^1.15.0",
     "window": "^4.2.7"
+  },
+  "devDependencies": {
+    "jsdom": "^20.0.3"
   }
 }
