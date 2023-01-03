@@ -42,6 +42,12 @@ nav ul a {
   cursor: pointer;
   margin: 2.5px 0;
   position: relative;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+nav ul a:hover {
+  color: white;
 }
 
 nav ul li {
@@ -75,10 +81,6 @@ nav ul a i::after {
   font-style: normal;
 }
 
-nav ul a:nth-child(1) i::after {
-  content: "1";
-}
-
 nav ul a i.bi-unlock-fill::after {
   translate: -100% -5%;
 }
@@ -103,37 +105,22 @@ nav ul a:nth-child(2) {
   background: #c38e21;
 }
 
-nav ul a:nth-child(2) i::after {
-  content: "2";
-}
-
 nav ul a:nth-child(3) {
   background: #56a485;
-}
-
-nav ul a:nth-child(3) i::after {
-  content: "3";
 }
 
 nav ul a:nth-child(4) {
   background: #4eaed9;
 }
 
-nav ul a:nth-child(4) i::after {
-  content: "4";
-}
-
 nav ul a:nth-child(5) {
   background: #6f78c0;
-}
-
-nav ul a:nth-child(5) i::after {
-  content: "5";
 }
 
 #chatBody {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 25px;
+  max-width: 75%;
 }
 
 #chat {

@@ -137,18 +137,18 @@
               Login
             </button>
             `;
-          var timeleft = 5;
+          var timeLeft = 5;
           var downloadTimer = setInterval(function () {
-            if (timeleft <= 0) {
+            if (timeLeft <= 0) {
               clearInterval(downloadTimer);
               document.getElementById("countdown").innerHTML = "Finished";
               window.location.href = "./login.html";
             } else {
               document.getElementById(
                 "countdown"
-              ).innerHTML = `Redirecting to login page in ${timeleft} seconds.`;
+              ).innerHTML = `Redirecting to login page in ${timeLeft} seconds.`;
             }
-            timeleft -= 1;
+            timeLeft -= 1;
           }, 1000);
         })
         .catch((error) => {

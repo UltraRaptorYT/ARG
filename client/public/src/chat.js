@@ -38,7 +38,28 @@ function writeMessage() {
       .then((response) => {
         autoReply(response.data.message);
         if (response.data.openDoor) {
-          alert("door open");
+          let passcode = response.data.openDoor;
+          let currentStage = localStorage.getItem("stage");
+          let userid = localStorage.getItem("userid");
+          axios({
+            method: "post",
+            url: URL + "/newProgress",
+            data: {
+              currentStage,
+              userid,
+              passcode,
+            },
+          }).then(({ data, error }) => {
+            if (error) {
+              return alert(error);
+            }
+            if (data) {
+              localStorage.setItem("stage", data.stage);
+              localStorage.setItem("uid", data.uid);
+              window.location.href = './act2.html'
+              return
+            }
+          });
         }
       })
       .catch((err) => {
@@ -49,9 +70,10 @@ function writeMessage() {
 }
 
 function autoReply(message = `Hello!`) {
-  if (chat.lastChild) {
-    if (chat.lastChild.contains("typing")) {
-      chat.lastChild.remove();
+  if (chat.lastElementChild) {
+    console.log(chat.lastElementChild);
+    if (chat.lastElementChild.classList.contains("typing")) {
+      chat.lastElementChild.remove();
     }
   }
   chat.innerHTML += `

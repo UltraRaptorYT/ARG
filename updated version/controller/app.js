@@ -67,15 +67,26 @@ app.post("/login", (req, res) => {
         email: email,
         password: password,
       })
-      .then(({ data, error }) => {
+      .then(async ({ data, error }) => {
         if (error) {
           console.log(error);
-          return;
+          res.status(500).send(error);
         } else {
+          console.log(data["user"]["id"]);
           console.log("successful");
+          superbase
+            .from("progress")
+            .select()
+            .eq("uid", data["user"]["id"])
+            .then(({ data, error }) => {
+              if (error) {
+                console.log(error);
+                return res.status(500).send(data);
+              }
+              console.log(data);
+              return res.status(202).send(data[0]);
+            });
         }
-        var reply = data["user"]["id"];
-        res.send(`{"user":"${reply}"}`);
       });
   }
 });

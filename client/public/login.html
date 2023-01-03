@@ -80,10 +80,14 @@
       axios
         .post(`${URL}/login`, { email, password })
         .then((response) => {
-          window.location.href = `./wiki.html`;
+          localStorage.setItem("stage", response.data.stage);
+          localStorage.setItem("uid", response.data.uid);
+          window.location.href = "./wiki.html";
         })
         .catch((error) => {
-          alert(error);
+          alert(
+            "Invalid Login Details ~ Contact sp_socclub@sp.edu.sg to reset password"
+          );
         });
     }
 
