@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./src/secret.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href="./css/main.css" rel="stylesheet" />
+    <link href="./css/index.css" rel="stylesheet" />
+    <title>SP - Wikipedia</title>
+    <link rel="shortcut icon" href="./src/Wikipedia-logo-v2.png" />
+  </head>
+
+  <body class="body d-flex flex-column">
+    <div id="bg">Act 1</div>
+    <div class="card container-fluid">
+      <!-- sp logo -->
+      <!-- laptop -->
+      <img
+        class="splogo1 d-none d-lg-block"
+        src="./src/img/Singapore_Polytechnic_logo.png"
+      />
+      <!-- tablet -->
+      <img
+        class="splogo2 d-none d-md-block d-lg-none"
+        src="./src/img/Singapore_Polytechnic_logo.png"
+      />
+      <!-- mobile -->
+      <img
+        class="splogo3 d-sm-block d-md-none"
+        src="./src/img/Singapore_Polytechnic_logo.png"
+      />
+
+      <!-- tabs -->
+      <div class="mytabs">
+        <input type="radio" id="tabinfo" name="mytabs" checked="checked" />
+        <label for="tabinfo">information</label>
+        <div class="tab">
+          <div class="line"></div>
+
+          <!-- row 1 -->
+          <div class="row">
+            <!-- laptop -->
+            <div class="d-block container-fluid d-none d-lg-block">
+              <!-- main col -->
+              <div class="col-12 col-lg-8 maincolumn1">
+                <h2>Singapore Polytechnic</h2>
+                <p>
+                  Singapore Polytechnic (SP) is a post-secondary education
+                  institution and statutory board under the purview of the
+                  Ministry of Education in Singapore.
+                </p>
+                <p>
+                  Established in <b><u>1954</u></b
+                  >, the institution is the first and oldest polytechnic in
+                  Singapore. The polytechnic is also renowned for its
+                  engineering programmes.
+                </p>
+
+                <div class="dropdown">
+                  <button class="dropbtn">Dropdown</button>
+                  <div class="dropdown-content">
+                    <a href="#organisation1" class="jumpto">Organisation</a>
+                    <a href="#facilities1" class="jumpto">Facilities</a>
+                    <a href="#recognition1" class="jumpto">Recognition</a>
+                    <a href="#scholarships1" class="jumpto">Scholarships</a>
+                    <a href="#admission1" class="jumpto">Admission</a>
+                    <a href="#incidents1" class="jumpto">Incidents</a>
+                    <a href="#alumni1" class="jumpto">Notable Alumni</a>
+                  </div>
+                </div>
+
+                <h3 id="organisation1">Organisation</h3>
+                <div class="lineOrg1"></div>
+                <p>
+                  Singapore Polytechnic offers full-time diploma courses and a
+                  range of continuing education programmes. It has 11 academic
+                  schools:
+                </p>
+                <ul>
+                  <li>
+                    School of Architecture and the Built Environment
+                    <b>(ABE)</b>
+                  </li>
+                  <li>SP Business School <b>(SB)</b></li>
+                  <li>School of Chemical and Life Sciences <b>(CLS)</b></li>
+                  <li>School of Computing <b>(SoC)</b></li>
+                  <li>
+                    School of Electrical and Electronic Engineering <b>(EEE)</b>
+                  </li>
+                  <li>School of Life Skills and Communication <b>(LSC)</b></li>
+                  <li>
+                    School of Mechanical and Aeronautical Engineering
+                    <b>(MAE)</b>
+                  </li>
+                  <li>School of Mathematics and Science <b>(MS)</b></li>
+                  <li>
+                    Professional & Adult Continuing Education
+                    <b>(PACE)</b> Academy
+                  </li>
+                  <li>Media, Arts and Design School <b>(MAD)</b></li>
+                  <li>Singapore Maritime Academy <b>(SMA)</b></li>
+                </ul>
+
+                <p>
+                  The Professional & Adult Continuing Education Academy, also
+                  known as the PACE Academy, is a multidisciplinary Continuing
+                  Education and Training (CET) Academy offering CET programmes
+                  for adults, both online and class room based
+                </p>
+              </div>
+
+              <!-- side col -->
+              <div class="sidecolumn1 table table-bordered text-white">
+                <table>
+                  <tr>
+                    <th colspan="2" class="cherrycocktail">
+                      Singapore Polytechnic<br />新加坡理工学院<br />Politeknik
+                      Singapura<br />சிங்கப்பூர் பாலிடெக்னிக்
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>Motto</th>
+                    <td>Berkhidmat Dengan Keahlian (Serve With Membership)</td>
+                  </tr>
+                  <tr>
+                    <th>Type</th>
+                    <td>Public<br />Government</td>
+                  </tr>
+                  <tr>
+                    <th>Established</th>
+                    <td>
+                      27 October <b><u>1954</u></b
+                      >; 67 years ago
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Chairperson</th>
+                    <td>Janet Ang</td>
+                  </tr>
+                  <tr>
+                    <th>Principal</th>
+                    <td>Soh Wai Wah</td>
+                  </tr>
+                  <tr>
+                    <th>Students</th>
+                    <td>15 900</td>
+                  </tr>
+                  <tr>
+                    <th>Location</th>
+                    <td>500 Dover Road, Singapore 139651</td>
+                  </tr>
+                  <tr>
+                    <th>Campus</th>
+                    <td>34 ha (94 acres)</td>
+                  </tr>
+                  <tr>
+                    <th>Nickname</th>
+                    <td>SP</td>
+                  </tr>
+                  <tr>
+                    <th>Website</th>
+                    <td><a href="https://www.sp.edu.sg/">sp.edu.sg</a></td>
+                  </tr>
+                  <tr>
+                    <th colspan="2" class="cherrycocktail">Agency overview</th>
+                  </tr>
+                  <tr>
+                    <th>Jurisdiction</th>
+                    <td>Government of Singapore</td>
+                  </tr>
+                  <tr>
+                    <th>Parent agency</th>
+                    <td>Ministry of Education</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- tablet and mobile -->
+            <div class="d-block d-md-none">
+              <h3>Singapore Polytechnic</h3>
+            </div>
+            <div class="d-none d-md-block d-lg-none">
+              <h2>Singapore Polytechnic</h2>
+            </div>
+            <div class="d-lg-none container-fluid">
+              <p>
+                Singapore Polytechnic (SP) is a post-secondary education
+                institution and statutory board under the purview of the
+                Ministry of Education in Singapore.
+              </p>
+              <p>
+                Established in <b><u>1954</u></b
+                >, the institution is the first and oldest polytechnic in
+                Singapore. The polytechnic is also renowned for its engineering
+                programmes.
+              </p>
+
+              <div class="dropdown">
+                <button class="dropbtn">Dropdown</button>
+                <div class="dropdown-content">
+                  <a href="#organisation2" class="jumpto">Organisation</a>
+                  <a href="#facilities1" class="jumpto">Facilities</a>
+                  <a href="#recognition1" class="jumpto">Recognition</a>
+                  <a href="#scholarships1" class="jumpto">Scholarships</a>
+                  <a href="#admission1" class="jumpto">Admission</a>
+                  <a href="#incidents1" class="jumpto">Incidents</a>
+                  <a href="#alumni1" class="jumpto">Notable Alumni</a>
+                </div>
+              </div>
+
+              <table class="table table-bordered text-white">
+                <tr>
+                  <th colspan="2" class="cherrycocktail">
+                    Singapore Polytechnic<br />新加坡理工学院<br />Politeknik
+                    Singapura<br />சிங்கப்பூர் பாலிடெக்னிக்
+                  </th>
+                </tr>
+                <tr>
+                  <th>Motto</th>
+                  <td>Berkhidmat Dengan Keahlian (Serve With Membership)</td>
+                </tr>
+                <tr>
+                  <th>Type</th>
+                  <td>Public<br />Government</td>
+                </tr>
+                <tr>
+                  <th>Established</th>
+                  <td>
+                    27 October <b><u>1954</u></b
+                    >; 67 years ago
+                  </td>
+                </tr>
+                <tr>
+                  <th>Chairperson</th>
+                  <td>Janet Ang</td>
+                </tr>
+                <tr>
+                  <th>Principal</th>
+                  <td>Soh Wai Wah</td>
+                </tr>
+                <tr>
+                  <th>Students</th>
+                  <td>15 900</td>
+                </tr>
+                <tr>
+                  <th>Location</th>
+                  <td>500 Dover Road, Singapore 139651</td>
+                </tr>
+                <tr>
+                  <th>Campus</th>
+                  <td>34 ha (94 acres)</td>
+                </tr>
+                <tr>
+                  <th>Nickname</th>
+                  <td>SP</td>
+                </tr>
+                <tr>
+                  <th>Website</th>
+                  <td><a href="https://www.sp.edu.sg/">sp.edu.sg</a></td>
+                </tr>
+                <tr>
+                  <th colspan="2" class="cherrycocktail">Agency overview</th>
+                </tr>
+                <tr>
+                  <th>Jurisdiction</th>
+                  <td>Government of Singapore</td>
+                </tr>
+                <tr>
+                  <th>Parent agency</th>
+                  <td>Ministry of Education</td>
+                </tr>
+              </table>
+
+              <br />
+              <h3 id="organisation2">Organisation</h3>
+              <div class="lineOrg2"></div>
+              <p>
+                Singapore Polytechnic offers full-time diploma courses and a
+                range of continuing education programmes. It has 11 academic
+                schools:
+              </p>
+              <ul>
+                <li>
+                  School of Architecture and the Built Environment <b>(ABE)</b>
+                </li>
+                <li>SP Business School <b>(SB)</b></li>
+                <li>School of Chemical and Life Sciences <b>(CLS)</b></li>
+                <li>School of Computing <b>(SoC)</b></li>
+                <li>
+                  School of Electrical and Electronic Engineering <b>(EEE)</b>
+                </li>
+                <li>School of Life Skills and Communication <b>(LSC)</b></li>
+                <li>
+                  School of Mechanical and Aeronautical Engineering <b>(MAE)</b>
+                </li>
+                <li>School of Mathematics and Science <b>(MS)</b></li>
+                <li>
+                  Professional & Adult Continuing Education
+                  <b>(PACE)</b> Academy
+                </li>
+                <li>Media, Arts and Design School <b>(MAD)</b></li>
+                <li>Singapore Maritime Academy <b>(SMA)</b></li>
+              </ul>
+
+              <p>
+                The Professional & Adult Continuing Education Academy, also
+                known as the PACE Academy, is a multidisciplinary Continuing
+                Education and Training (CET) Academy offering CET programmes for
+                adults, both online and class room based
+              </p>
+            </div>
+          </div>
+
+          <!-- row 2 -->
+          <div class="row">
+            <div class="space"></div>
+
+            <h3 id="facilities1">Facilities</h3>
+            <div class="line2"></div>
+            <p>
+              The Sports Complex has a football pitch, running track,
+              Olympic-sized swimming complex, four tennis courts, three
+              badminton courts, three basketball courts and a gym.
+            </p>
+            <p>
+              The SPorts ARena, completed in 2015, has 12 badminton courts, two
+              basketball courts, four squash courts, one multi-purpose court and
+              two volleyball courts. Other facilities include an external rock
+              climbing wall and two rooftop basketball courts.
+            </p>
+            <p>
+              Moberly is the oldest block of Singapore Polytechnic—it was once a
+              British Army barracks, the building has been refurbished into a
+              recreational hub. It has seven pool tables, jamming studios,
+              karaoke rooms, a café and a mini museum.
+            </p>
+            <h4>Other facilities</h4>
+            <ul class="extrainfo">
+              <li>
+                The alumni clubhouse, Singapore Polytechnic Graduates Guild
+                (SPGG), located next to the campus, and has a bowling alley,
+                swimming pool, pool room, a gym and a restaurant.
+              </li>
+              <li>
+                Two libraries: the Main Library and Hilltop Library. The Main
+                Library houses the first Makerspace in a Singapore library.
+              </li>
+              <li>
+                AeroHub: A four-storey building that houses an aircraft hangar,
+                laboratories and a Research & Development centre. There are
+                currently four aircraft in the hangar: Hawker HS 125-700A, King
+                Air B90, A4SU Super Skyhawk and Bell UH-1H.
+              </li>
+            </ul>
+            <div class="space"></div>
+
+            <h3 id="recognition1">Recognition</h3>
+            <div class="line2"></div>
+            <p>
+              Singapore Polytechnic has been awarded the Singapore Quality Class
+              as well as the ISO 9001 and ISO 14001 certifications. It has also
+              won the Singapore Public Service Award for Organisational
+              Excellence and the People Developer and Family Friendly Awards.
+            </p>
+            <p>
+              SP received the President's Award for the Environment in 2010.
+              Some of the key green initiatives by SP over the years included
+              spearheading the adoption of Marina Reservoir—keeping it clean and
+              organising the Singapore International Water Festival to engage
+              youths on environmental and water issues.
+            </p>
+            <p>
+              In 2011, SP won the South West Environment and Community Award
+              (Community Category). The award recognises exemplar efforts of
+              organisations that have contributed to environmental and community
+              sustainability in the district.
+            </p>
+            <p>
+              SP also clinched the inaugural ASEAN People's Award in 2015 for
+              its contributions toward the region's community-building efforts.
+            </p>
+            <div class="space"></div>
+
+            <h3 id="scholarships1">Scholarships</h3>
+            <div class="line2"></div>
+            <p>
+              Singapore Polytechnic currently offers the following scholarships:
+            </p>
+            <ul class="extrainfo">
+              <li>SP Scholarships</li>
+              <li>SP Engineering Scholarships</li>
+              <li>SP Sports and Arts Scholarships</li>
+            </ul>
+            <h4>
+              Singapore Polytechnic Outstanding Talent <b>(SPOT)</b> Programme
+            </h4>
+            <p>
+              SPOT is a talent development and enrichment programme. All
+              recipients of the SP Scholarship will automatically be placed
+              under this programme. Other eligible students will be invited to
+              join SPOT based on their academic results or lecturers'
+              recommendation.
+            </p>
+            <div class="space"></div>
+
+            <h3 id="admission1">Admission</h3>
+            <div class="line2"></div>
+            <h4>Early Admission Exercise <b>(EAE)</b></h4>
+            <p>
+              EAE is an admissions exercise that allows students to apply and
+              receive conditional offers for admission to polytechnic based on
+              their aptitudes and interests before taking their O-Level exams,
+              or after completing their NITEC or Higher NITEC course at the
+              Institute of Technical Education (ITE). This exercise replaced the
+              Direct Polytechnic Admissions (DPA) and Joint Admission Exercise
+              (JAE).
+            </p>
+            <h4>Polytechnic Foundation Programme <b>(PFP)</b></h4>
+            <p>
+              PFP is an admissions exercise that allows the top 10% of Normal
+              Academic (NA) students to apply to a polytechnic without going
+              through O-Level. PFP students will go through a one-year course,
+              teaching them the foundations of subjects that will be needed in
+              their diploma year. If the student passes PFP, they will move onto
+              their diploma courses. Additional scholarships and awards are
+              available to those who do well in their foundation year.
+            </p>
+            <div class="space"></div>
+
+            <h3 id="incidents1">Incidents</h3>
+            <div class="line2"></div>
+            <h4>Fire at T11C in 2015</h4>
+            <p>
+              On 25 August 2015 morning at around 10:30am, a fire broke out at
+              one of Singapore Polytechnic's building, Block T11C. About 50
+              students was evacuated, and 3 security officers who suffered from
+              smoke inhalation, were taken to National University Hospital. The
+              fire reportedly involves a solar car model according to the
+              Singapore Civil Defence Force (SCDF).
+            </p>
+            <div class="space"></div>
+
+            <h3 id="alumni1">Notable Alumni</h3>
+            <div class="line2"></div>
+            <h4>Academia</h4>
+            <ul class="extrainfo">
+              <li>Shih Choon Fong &#8212; Singaporean college administrator</li>
+              <li>
+                Chai Keong Toh &#8212; Singaporean computer scientist, engineer
+                and professor
+              </li>
+            </ul>
+            <h4>Entertainment</h4>
+            <ul class="extrainfo">
+              <li>Tanya Chua &#8212; Singaporean singer</li>
+              <li>
+                Taufik Batisah &#8212; Singaporean singer, Singapore Idol winner
+              </li>
+              <li>Kelly Poon &#8212; Singaporean singer</li>
+              <li>
+                Shigga Shay &#8212; Singaporean hip hop artist and songwriter
+              </li>
+              <li>
+                Jarrell Huang &#8212; Singaporean singer, SPOP Sing! winner
+              </li>
+            </ul>
+            <h4>Politics</h4>
+            <ul class="extrainfo">
+              <li>
+                Cedric Foo &#8212; Singaporean politician, Minister of State for
+                Defence (2002 to 2005) and Minister of State for National
+                Development (2004 to 2005)
+              </li>
+              <li>
+                Liang Eng Hwa &#8212; Singaporean politician, Member of
+                Parliament (MP) for Bukit Panjang SMC (2020 to present) and
+                Holland-Bukit Timah GRC (2006 to 2020)
+              </li>
+              <li>
+                Faisal Manap &#8212; Singaporean politician, Member of
+                Parliament (MP) for Aljunied GRC (2011 to present)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <input type="radio" id="tabsecret" name="mytabs" />
+        <label for="tabsecret"><p data-text="secret">secret</p></label>
+        <div class="tab">
+          <div class="line"></div>
+          <img
+            class="lock mx-auto d-block"
+            src="./src/img/lockpurple.png"
+            alt="lockpurple.png"
+          />
+          <h2 data-text="Secret" style="margin-bottom: 5px">Secret</h2>
+          <div id="password" class="text-center">
+            <div class="col-12 col-md-6 col-lg-4 mx-auto">
+              <input type="number" id="password-input" class="form-control" />
+              <input type="submit" id="password-submit" class="button" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    &nbsp;
+  </body>
+</html>

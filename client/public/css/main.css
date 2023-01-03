@@ -31,12 +31,13 @@
 @keyframes fadeInAnimation {
   0% {
     opacity: 1;
+    z-index: 1000;
   }
   100% {
     opacity: 0;
+    z-index: -1;
   }
 }
-
 nav ul {
   list-style: none;
   padding: 0;
@@ -46,4 +47,9 @@ body {
   width: 100%;
   min-height: calc(var(--vh, 1vh) * 100);
   height: fit-content;
+}
+
+.height {
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
 }

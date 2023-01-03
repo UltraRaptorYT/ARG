@@ -1,0 +1,276 @@
+body {
+  transition: all ease-in-out;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  color: white;
+  overflow: hidden;
+}
+
+.body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-image: url(../src/background.jpg);
+  background-color: #0c0e41;
+}
+
+aside {
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  z-index: 11;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  margin: 2.5px 0;
+  position: relative;
+}
+
+nav ul li {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li i {
+  font-size: 25px;
+}
+
+nav ul a:hover {
+  padding-left: 30px;
+  padding-right: 25px;
+}
+
+nav ul a:nth-child(1) {
+  background: #ca5450;
+}
+
+nav ul a i::after {
+  position: absolute;
+  color: black;
+  font-size: 3px;
+  top: 50%;
+  left: 50%;
+  translate: -50% -5%;
+  font-style: normal;
+}
+
+nav ul a:nth-child(1) i::after {
+  content: "1";
+}
+
+nav ul a i.bi-unlock-fill::after {
+  translate: -100% -5%;
+}
+
+nav ul a i {
+  color: #ddd;
+}
+
+nav ul a:hover i {
+  color: #fff;
+}
+
+nav ul a:hover i.bi-unlock-fill::after {
+  translate: -60% -5%;
+}
+
+nav ul a:hover i::after {
+  translate: 0% -5%;
+}
+
+nav ul a:nth-child(2) {
+  background: #c38e21;
+}
+
+nav ul a:nth-child(2) i::after {
+  content: "2";
+}
+
+nav ul a:nth-child(3) {
+  background: #56a485;
+}
+
+nav ul a:nth-child(3) i::after {
+  content: "3";
+}
+
+nav ul a:nth-child(4) {
+  background: #4eaed9;
+}
+
+nav ul a:nth-child(4) i::after {
+  content: "4";
+}
+
+nav ul a:nth-child(5) {
+  background: #6f78c0;
+}
+
+nav ul a:nth-child(5) i::after {
+  content: "5";
+}
+
+#chatBody {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+}
+
+#chat {
+  overflow-y: auto;
+  margin: 20px 0;
+}
+
+.bubble {
+  background: #d9d9d9;
+  padding: 6px 15px;
+  white-space: pre-wrap;
+  max-width: 75%;
+  position: relative;
+  color: black;
+  margin: 0px 10px;
+}
+
+.bubble::before {
+  content: "";
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #d9d9d9;
+  top: 0;
+}
+
+.other {
+  background: #d9d9d9;
+  margin-right: auto;
+  border-radius: 0 10px 10px 10px;
+}
+
+.other::before {
+  border-top: 10px solid #d9d9d9;
+  left: -5px;
+}
+
+.me {
+  background: #a0bffe;
+  margin-left: auto;
+  border-radius: 10px 0 10px 10px;
+}
+
+.me::before {
+  border-top: 10px solid #a0bffe;
+  right: -5px;
+}
+
+@media screen and (max-width: 576px) {
+  #chatWrapper {
+    padding: 0px 40px;
+  }
+  .bubble {
+    max-width: 100%;
+  }
+}
+
+input {
+  outline: 0;
+}
+
+#send {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+}
+
+#send i.bi-send-fill {
+  rotate: 45deg;
+  translate: -2.5px 0px;
+}
+
+#mute {
+  height: 100%;
+  aspect-ratio: 1;
+}
+
+#inputBox button:nth-child(1) {
+  border-radius: 50% 0 0 50%;
+}
+
+#inputBox button:nth-child(3) {
+  border-radius: 0 50% 50% 0;
+}
+
+.btn-new,
+.btn-new:active,
+.btn-new:focus {
+  background: #6397ff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  border: 0;
+}
+
+.btn-new:hover {
+  background: #5181e0;
+  color: #fff;
+}
+
+#chatAIWrapper {
+  z-index: 10;
+}
+
+#back {
+  position: fixed;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  font-size: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+#back.animate {
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 1;
+    z-index: 9;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+
