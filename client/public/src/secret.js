@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (hashedUserInput === hashedPassword) {
           p.style.color = "green";
           p.textContent = "Correct password!";
-          window.location.href = "./chat.html"
+          window.location.href = "./chat.html";
         } else {
           p.style.color = "red";
           p.textContent = "Incorrect password! Try Again!";
@@ -58,3 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+if (localStorage.getItem("stage") > 1) {
+  document.getElementById("nav").classList.remove("opacity-0");
+}
