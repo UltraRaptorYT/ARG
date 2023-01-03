@@ -32,8 +32,7 @@
         var jsonData = `{
         "email":"${email}",
         "password":"${password}"
-        
-      }`
+        }`
 
       $.ajax({
         url: "http://localhost:3001/login",
@@ -48,7 +47,6 @@
             );
           }
         },
-
         error: function (xhr, textStatus, errorThrown) {
           alert(textStatus)
         },

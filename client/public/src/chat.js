@@ -2,8 +2,7 @@ var chat = document.getElementById("chat");
 
 var mute = document.getElementById("mute");
 
-const URL =
-  "https://us-central1-arg-test-3267b.cloudfunctions.net/app/api/chat";
+const URL = "https://soccargbackend.onrender.com";
 
 document.querySelector("#message").addEventListener("keydown", (e) => {
   if (e.key == "Enter") {
@@ -22,15 +21,25 @@ function writeMessage() {
 			<div class="me bubble">${message}</div>
 		`;
     scrollBottom();
+    chat.innerHTML += `
+			<div class="other bubble typing">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+		`;
     axios({
       method: "post",
-      url: URL,
+      url: URL + "/api/chat",
       data: {
         prompt: message,
       },
     })
       .then((response) => {
         autoReply(response.data.message);
+        if (response.data.openDoor) {
+          alert("door open");
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -40,6 +49,11 @@ function writeMessage() {
 }
 
 function autoReply(message = `Hello!`) {
+  if (chat.lastChild) {
+    if (chat.lastChild.contains("typing")) {
+      chat.lastChild.remove();
+    }
+  }
   chat.innerHTML += `
 	<div class="other bubble">${message}</div>
 	`;

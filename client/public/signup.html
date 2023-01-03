@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./css/signup.css" />
   </head>
   <body class="bg-slate-800">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <div
       class="flex flex-col h-full w-full justify-center items-center my-6 md:my-0"
     >
@@ -100,17 +101,10 @@
   <script type="module">
     import supabase from "./src/supabase.js";
 
+    const URL = "http://localhost:3001";
     // Client side validation - Please validate on the backend too (Using RLS).
-    // const classRegex = /^D[A-Z]{1,}\/FT\/\d+[A-Z]\/.*/g;
+    
     const adminNumberRange = [1_300_000, 2_400_000];
-
-    // function validateStudentClass(studentClass) {
-    //   if (classRegex.test(studentClass)) {
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // }
 
     function validateAdminNumber(adminNumber) {
       return (
@@ -127,42 +121,38 @@
       admin_number,
       student_class,
     }) {
-      await supabase.auth
-        .signUp({
+      axios
+        .post(`${URL}/signup`, {
+          full_name,
           email,
           password,
-          options: {
-            data: {
-              full_name,
-              admin_number,
-              student_class,
-            },
-          },
+          admin_number,
+          student_class,
         })
-        .then(({ data, error }) => {
-          if (error) {
-            alert(error);
-          } else {
-            document.getElementById("signup-form").innerHTML = `
+        .then((response) => {
+          document.getElementById("signup-form").innerHTML = `
             <h2 class="text-2xl font-bold text-center">Please check your email <br/>for the confirmation email.</h2>
             <div id="countdown"></div>
-            <button onclick="window.location.href = './login.html'" class="bg-slate-500 hovver:bg-slate-700 text-white p-2 rounded-full">
+            <button type="button" onclick="window.location.href = './login.html'" class="bg-slate-500 hovver:bg-slate-700 text-white p-2 rounded-full">
               Login
             </button>
-          `;
-            var timeleft = 5;
-            var downloadTimer = setInterval(function () {
-              if (timeleft <= 0) {
-                clearInterval(downloadTimer);
-                document.getElementById("countdown").innerHTML = "Finished";
-                window.location.href = "./login.html";
-              } else {
-                document.getElementById("countdown").innerHTML =
-                  `Redirecting to login page in ${timeleft} seconds.`;
-              }
-              timeleft -= 1;
-            }, 1000);
-          }
+            `;
+          var timeleft = 5;
+          var downloadTimer = setInterval(function () {
+            if (timeleft <= 0) {
+              clearInterval(downloadTimer);
+              document.getElementById("countdown").innerHTML = "Finished";
+              window.location.href = "./login.html";
+            } else {
+              document.getElementById(
+                "countdown"
+              ).innerHTML = `Redirecting to login page in ${timeleft} seconds.`;
+            }
+            timeleft -= 1;
+          }, 1000);
+        })
+        .catch((error) => {
+          alert(error);
         });
     }
 
