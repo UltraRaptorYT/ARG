@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./src/exolve.js"></script>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/crossword.css" />
+    <title>SOCC ARG</title>
+  </head>
+  <body>
+    <div id="bg">Act 3</div>
+    <div id="crossword"></div>
+    <script>
+      function lol(s, r) {
+        let pt = new Array(s.length);
+        let k = 0;
+        let l = 0;
+        for (l = 0; l < r - 1; l++) {
+          let skip = 2 * (r - l - 1);
+          let j = 0;
+          for (let i = l; i < s.length; ) {
+            pt[i] = s.charAt(k++);
+            if (l == 0 || j % 2 == 0) i += skip;
+            else i += 2 * (r - 1) - skip;
+            j++;
+          }
+        }
+        for (let i = l; i < s.length; i += 2 * (r - 1)) {
+          pt[i] = s.charAt(k++);
+        }
+        return pt.join("");
+      }
+      // change to ping server to get
+      var newtxt = `
+      ======REPLACE WITH YOUR PUZZLE BELOW======
+
+exolve-begin
+  exolve-id: test-exolve-div
+  exolve-option: colour-active:#FFFFD7
+  exolve-option: colour-active-clue:#fcf192
+  exolve-option: colour-input:#fcf192
+  exolve-option: colour-button:#28a745
+  exolve-option: colour-button-hover:#218838
+  exolve-option: colour-small-button-hover:#fcf192
+  exolve-width: 26
+  exolve-height: 16
+  exolve-grid:
+    . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . A . . . . . . . . . . . . . . . . . . .
+    . . . . . . L . . . . . . G . . . . . . . . . . . .
+    . P . . . . K . . . . . . L . . . . V . . . . . . .
+    . R . . . . A . . . C H L O R O P L A S T . . . . .
+    . O . . W . L . . . . E . B . . . . L . . . . . . .
+    . P Y R A M I D . . . X . E . . . . E . . . . . . .
+    . A . . T . . E . . . A . . . . . . N . . T . . . .
+    . N . . T . . U . . . G . W . . . A C U T E . . . .
+    . E . . . P Y T H A G O R A S . . . E . . R . . . .
+    . . . . . L . E . . . N . T . . . . . . . M . . . .
+    . . . Q U A D R A N T . . E . . . . . . . I . . . .
+    . . . . . S . I . . . . . R . . . . . . . N . . . .
+    . . . . . M . U . . . . . . . L I G H T S A B E R .
+    . . . . M A M M O T H . . . . . . . . . . L . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . .
+  exolve-across:
+    5 The plant cell organelle where photosynthesis takes place (11) [CHLOROPLAST]
+    8 Item to find at location A (7) [PYRAMID]
+    12 0 degrees < theta < 90 degrees (5) [acute]
+    13 The theorem a^2 + b^2 = c^2 is attributed to __________ (10) [pythagoras]
+    14 1/4 of a circle (8) [quadrant]
+    15 Item to find at location C (10) [lightsaber]
+    16 Item to find at location D (7) [mammoth]
+  exolve-down
+    1 Group 1 metals in the periodic table (6) [alkali]
+    2 Item to find at location B (5) [globe]
+    3 C3H8 (7) [propane]
+    4 Outer electron shell in an atom (7) [valence]
+    6 6 sided polygon (7) [hexagon]
+    7 What is the SI unit of power? (4) [watt]
+    9 Hydrogen but with one neutron (9) [deuterium]
+    10 Falling object reach its max velocity: ________ velocity (8) [terminal]
+    11 Dihydrogen oxide (5) [water]
+    13 The 4th state of matter (6) [plasma]
+exolve-end
+
+======REPLACE WITH YOUR PUZZLE ABOVE======`;
+      // Create crossword
+      createExolve(newtxt, "crossword", false);
+    </script>
+    <script>
+      let vh = 0.01 * window.innerHeight;
+      document.documentElement.style.setProperty("--vh", vh + "px");
+    </script>
+  </body>
+</html>
