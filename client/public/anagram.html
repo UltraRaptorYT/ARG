@@ -306,5 +306,10 @@
       let vh = 0.01 * window.innerHeight;
       document.documentElement.style.setProperty("--vh", vh + "px");
     </script>
+    <script>
+      if (localStorage.getItem("stage") < 3) {
+        window.history.back();
+      }
+    </script>
   </body>
 </html>

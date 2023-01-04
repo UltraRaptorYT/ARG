@@ -40,7 +40,7 @@ function writeMessage() {
         if (response.data.openDoor) {
           let passcode = response.data.openDoor;
           let currentStage = localStorage.getItem("stage");
-          let userid = localStorage.getItem("userid");
+          let userid = localStorage.getItem("uid");
           axios({
             method: "post",
             url: URL + "/newProgress",
@@ -56,8 +56,8 @@ function writeMessage() {
             if (data) {
               localStorage.setItem("stage", data.stage);
               localStorage.setItem("uid", data.uid);
-              window.location.href = './ABE.html'
-              return
+              window.location.href = "./ABE.html";
+              return;
             }
           });
         }

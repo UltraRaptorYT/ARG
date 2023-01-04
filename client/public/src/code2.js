@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
           p.style.color = "green";
           p.textContent = "Correct password!";
           let currentStage = localStorage.getItem("stage");
-          let userid = localStorage.getItem("userid");
+          let userid = localStorage.getItem("uid");
           axios({
             method: "post",
             url: URL + "/newProgress",
