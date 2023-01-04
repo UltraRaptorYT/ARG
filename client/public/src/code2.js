@@ -1,5 +1,7 @@
 const p = document.createElement("h3");
 
+const URL = "https://soccargbackend.onrender.com";
+
 p.style.marginTop = "20px";
 document.addEventListener("DOMContentLoaded", () => {
   const hashedPassword =
@@ -9,7 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
   submitButton.addEventListener("click", (event) => {
     event.preventDefault();
     crypto.subtle
-      .digest("SHA-256", new TextEncoder().encode(passwordInput.toUpperCase().value))
+      .digest(
+        "SHA-256",
+        new TextEncoder().encode(passwordInput.toUpperCase().value)
+      )
       .then(function (hash) {
         const hashedUserInput = Array.prototype.map
           .call(new Uint8Array(hash), (x) => ("00" + x.toString(16)).slice(-2))
@@ -17,7 +22,27 @@ document.addEventListener("DOMContentLoaded", () => {
         if (hashedUserInput === hashedPassword) {
           p.style.color = "green";
           p.textContent = "Correct password!";
-          window.location.href = "./chat.html";
+          let currentStage = localStorage.getItem("stage");
+          let userid = localStorage.getItem("userid");
+          axios({
+            method: "post",
+            url: URL + "/newProgress",
+            data: {
+              currentStage,
+              userid,
+              hashedUserInput,
+            },
+          }).then(({ data, error }) => {
+            if (error) {
+              return alert(error);
+            }
+            if (data) {
+              localStorage.setItem("stage", data.stage);
+              localStorage.setItem("uid", data.uid);
+              window.location.href = "./crossword.html";
+              return;
+            }
+          });
         } else {
           p.style.color = "red";
           p.textContent = "Incorrect password! Try Again!";
