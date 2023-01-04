@@ -9,6 +9,7 @@
 }
 
 #bg {
+  text-align: center;
   animation: fadeInAnimation ease 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -23,6 +24,8 @@
   color: white;
   font-size: 10vh;
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   font-weight: 500;
@@ -50,8 +53,9 @@ body {
 }
 
 .height {
-  width: 100vw;
-  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  min-height: calc(var(--vh, 1vh) * 100);
+  height: fit-content;
 }
 
 aside {
@@ -141,17 +145,44 @@ nav ul a:hover i::after {
 }
 
 nav ul a:nth-child(2) {
-  background: #c38e21;
+  background: #e67d41;
 }
 
 nav ul a:nth-child(3) {
-  background: #56a485;
+  background: #c38e21;
 }
 
 nav ul a:nth-child(4) {
-  background: #4eaed9;
+  background: #56a485;
 }
 
 nav ul a:nth-child(5) {
+  background: #4eaed9;
+}
+
+nav ul a:nth-child(6) {
   background: #6f78c0;
+}
+
+nav ul a:nth-child(7) {
+  background: #794771;
+}
+
+nav ul a i::after {
+  position: absolute;
+  color: black;
+  font-size: 3px;
+  top: 50%;
+  left: 50%;
+  translate: -50% -5%;
+  font-style: normal;
+  text-align: center;
+}
+
+nav ul a:hover i::after {
+  translate: 0% -5%;
+}
+
+#openMe {
+  margin-bottom: 20px;
 }

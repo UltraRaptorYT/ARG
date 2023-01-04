@@ -24,3 +24,14 @@ bot.addEventListener("click", () => {
 if (!localStorage.getItem("uid")) {
   window.history.back();
 }
+
+var stage = localStorage.getItem("stage");
+
+if (stage > 1) {
+  document.getElementById("nav").classList.remove("opacity-0");
+}
+
+if (stage == 2) {
+  document.getElementById("Act2").setAttribute("href", "./ABE.html");
+  document.getElementById("Act2").querySelector("li").innerHTML = `ABE`;
+}

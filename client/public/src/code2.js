@@ -67,7 +67,7 @@ if (stage > 1) {
 
 if (stage == 2) {
   document.getElementById("Act2").setAttribute("href", "./ABE.html");
-  document.getElementById("Act2").querySelector("li").innerHTML = `ABE`
+  document.getElementById("Act2").querySelector("li").innerHTML = `ABE`;
 }
 
 if (!localStorage.getItem("uid")) {

@@ -1,1 +1,0 @@
-good morning, this is a test from zavier to vivi branch on 12.12 (shoppee sale lesgo)
