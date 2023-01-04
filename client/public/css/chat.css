@@ -212,3 +212,8 @@ input {
     opacity: 0.1;
   }
 }
+
+.height {
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
+}
