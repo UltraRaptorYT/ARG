@@ -62,3 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 if (localStorage.getItem("stage") > 1) {
   document.getElementById("nav").classList.remove("opacity-0");
 }
+
+if (!localStorage.getItem("uid")) {
+  window.history.back();
+}

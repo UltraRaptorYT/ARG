@@ -89,6 +89,11 @@
             required
           />
         </label>
+        <div class="flex w-full">
+          <a href="./login.html" class="text-sm underline ml-auto"
+            >Already have account?</a
+          >
+        </div>
         <button
           type="submit"
           class="bg-slate-500 hovver:bg-slate-700 text-white p-2 rounded-full"
@@ -103,7 +108,7 @@
 
     const URL = "https://soccargbackend.onrender.com";
     // Client side validation - Please validate on the backend too (Using RLS).
-    
+
     const adminNumberRange = [1_300_000, 2_400_000];
 
     function validateAdminNumber(adminNumber) {

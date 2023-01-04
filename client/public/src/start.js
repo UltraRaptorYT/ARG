@@ -20,3 +20,7 @@ bot.addEventListener("click", () => {
     });
   }
 });
+
+if (!localStorage.getItem("uid")) {
+  window.history.back();
+}
