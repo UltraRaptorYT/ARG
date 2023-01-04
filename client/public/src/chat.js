@@ -56,7 +56,7 @@ function writeMessage() {
             if (data) {
               localStorage.setItem("stage", data.stage);
               localStorage.setItem("uid", data.uid);
-              window.location.href = './act2.html'
+              window.location.href = './ABE.html'
               return
             }
           });
