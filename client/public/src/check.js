@@ -44,16 +44,10 @@ function checkWord() {
                   if (hashedUserInput3 === hashedPassword3) {
                     document.getElementById(
                       "err"
-                    ).textContent = `Congratulations! You have complete the puzzle! The location is at T11[ELEVEN] SQUARE and you will need to find a PIANO`;
+                    ).innerHTML = `<a href="./AR.html" class="text-success">Congratulations! You have complete the puzzle! The location is at T11[ELEVEN] SQUARE and you will need to find a PIANO. Click Me!</a>`;
                     document
                       .getElementById("err")
                       .classList.remove("opacity-0");
-                    document
-                      .getElementById("err")
-                      .classList.remove("text-danger");
-                    document
-                      .getElementById("err")
-                      .classList.add("text-success");
                     console.log("Yay!");
                   } else {
                     document.getElementById(

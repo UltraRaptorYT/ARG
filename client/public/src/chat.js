@@ -37,8 +37,9 @@ function writeMessage() {
     })
       .then((response) => {
         autoReply(response.data.message);
+        console.log(response.data.openDoor);
         if (response.data.openDoor) {
-          let passcode = response.data.openDoor;
+          var passcode = response.data.openDoor;
           let currentStage = localStorage.getItem("stage");
           let userid = localStorage.getItem("uid");
           axios({
@@ -53,6 +54,7 @@ function writeMessage() {
             if (error) {
               return alert(error);
             }
+            console.log("newProgress");
             if (data) {
               localStorage.setItem("stage", data.stage);
               localStorage.setItem("uid", data.uid);
