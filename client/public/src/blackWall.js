@@ -130,8 +130,7 @@ var current = 0;
 var textLength = 0;
 var text = "";
 
-// var functionList = ["encode", "binary", "caesarEncrypt", "hex"];
-var functionList = [];
+var functionList = ["encode", "binary", "caesarEncrypt", "hex"];
 
 function type() {
   let textChar = text.charAt(textLength++);
