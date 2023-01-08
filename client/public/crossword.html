@@ -6,6 +6,10 @@
     <script src="./src/exolve.js"></script>
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/crossword.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
     <title>SOCC ARG</title>
   </head>
   <body>
@@ -13,9 +17,6 @@
     <aside id="nav">
       <nav id="sidebar">
         <ul>
-          <a id="openMe" href="./code2.html"
-            ><li><i class="bi bi-lock-fill openMe"></i></li
-          ></a>
           <a id="Act1" href="./wiki.html"><li>Wiki</li></a>
           <a id="Act2"
             ><li><i class="bi bi-lock-fill"></i></li
@@ -114,6 +115,7 @@ exolve-end
       let vh = 0.01 * window.innerHeight;
       document.documentElement.style.setProperty("--vh", vh + "px");
     </script>
+    <script src="./src/main.js"></script>
     <script>
       if (localStorage.getItem("stage") < 3) {
         window.history.back();

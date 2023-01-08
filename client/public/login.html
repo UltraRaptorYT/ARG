@@ -85,17 +85,10 @@
         .post(`${URL}/login`, { email, password })
         .then((response) => {
           console.log(email, password);
-
           console.log(response);
           localStorage.setItem("stage", response.data.stage);
           localStorage.setItem("uid", response.data.uid);
-          if (response.data.stage == 1) {
-            window.location.href = "./wiki.html";
-          } else if (response.data.stage == 2) {
-            window.location.href = "./ABE.html";
-          } else if (response.data.stage == 3) {
-            window.location.href = "./crossword.html";
-          }
+          window.location.href = "./wiki.html";
         })
         .catch((error) => {
           alert(

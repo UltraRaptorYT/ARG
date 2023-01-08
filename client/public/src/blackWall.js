@@ -11,6 +11,8 @@ var questionsObj = {
     "8da6a65a4ae92184cfbeab2b9e9c4f4b956798971feb3635292fa88333edbba081c026272cb43bcb0ab1b5fc2c5496bda1c93ac7aabf6164ad1b774e417e614e",
 };
 
+const URL = "https://soccargbackend.onrender.com";
+
 var binaryQn = {
   "Which corporation was the serum made by?":
     "504a6ca35e56ba83ba77e47c179bbba9c65525135f2331cfc31527da37e1a9432f766cceaa97f8be6cbe0389c5b1130610507315534eb120c5d4e3469241f7e4",
@@ -219,6 +221,32 @@ function submit() {
         if (current <= functionList.length) {
           getQuestion();
         } else {
+          let currentStage = localStorage.getItem("stage");
+          if (currentStage > 5) {
+            window.location.href = "./act5.html";
+            return;
+          }
+          let userid = localStorage.getItem("uid");
+          let passcode =
+            "Knacam,jW6s@Y9#`~2W;&sr+;4eA@yUwA%*rYh~2uxtjQ38d])s^zbdA~AWTcfnD";
+          axios({
+            method: "post",
+            url: URL + "/newProgress",
+            data: {
+              currentStage,
+              userid,
+              passcode,
+            },
+          }).then(({ data, error }) => {
+            if (error) {
+              return alert(error);
+            }
+            if (data) {
+              localStorage.setItem("stage", data.stage);
+              localStorage.setItem("uid", data.uid);
+              return;
+            }
+          });
           document.getElementById("err").classList.remove(`opacity-0`);
           document.getElementById("err").innerHTML = `
             <div class="flex flex-col text-green-500 gap-2">

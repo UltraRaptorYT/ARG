@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
           p.textContent = "Correct password!";
           let currentStage = localStorage.getItem("stage");
           let userid = localStorage.getItem("uid");
+          if (currentStage > 3) {
+            window.location.href = "./blackwall.html";
+            return;
+          }
           axios({
             method: "post",
             url: URL + "/newProgress",
@@ -71,6 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
             p.style.color = "green";
             p.textContent = "Correct password!";
             let currentStage = localStorage.getItem("stage");
+            if (currentStage > 3) {
+              window.location.href = "./blackwall.html";
+              return;
+            }
             let userid = localStorage.getItem("uid");
             axios({
               method: "post",

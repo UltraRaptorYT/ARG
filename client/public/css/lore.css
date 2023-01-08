@@ -3,61 +3,22 @@ body {
   background-size: cover;
   background-position: center top;
   background-image: url(../src/background.jpg);
-  color: #f2f103;
+  color: white;
   overflow: hidden;
   font-weight: bold;
+}
+
+#chatBody {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 25px;
+  text-shadow: 0px 0px 5px black;
   font-size: large;
 }
 
 #chatBody {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 25px;
-}
-
-#chat {
   overflow-y: auto;
   margin: 20px 0;
-}
-
-.bubble {
-  background: #d9d9d9;
-  padding: 6px 15px;
-  white-space: pre-wrap;
-  max-width: 75%;
-  position: relative;
-  color: black;
-  margin: 0px 10px;
-}
-
-.bubble::before {
-  content: "";
-  position: absolute;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #d9d9d9;
-  top: 0;
-}
-
-.other {
-  background: #d9d9d9;
-  margin-right: auto;
-  border-radius: 0 10px 10px 10px;
-}
-
-.other::before {
-  border-top: 10px solid #d9d9d9;
-  left: -5px;
-}
-
-.me {
-  background: #a0bffe;
-  margin-left: auto;
-  border-radius: 10px 0 10px 10px;
-}
-
-.me::before {
-  border-top: 10px solid #a0bffe;
-  right: -5px;
+  max-height: 75vh;
 }
 
 @media screen and (max-width: 576px) {
@@ -69,72 +30,6 @@ body {
   }
 }
 
-input {
-  outline: 0;
-}
-
-#send {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 1;
-}
-
-#send i.bi-send-fill {
-  rotate: 45deg;
-  translate: -2.5px 0px;
-}
-
-#mute {
-  height: 100%;
-  aspect-ratio: 1;
-}
-
-#inputBox button:nth-child(1) {
-  border-radius: 50% 0 0 50%;
-}
-
-#inputBox button:nth-child(3) {
-  border-radius: 0 50% 50% 0;
-}
-
-.btn-new,
-.btn-new:active,
-.btn-new:focus {
-  background: #6397ff;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  border: 0;
-}
-
-.btn-new:hover {
-  background: #5181e0;
-  color: #fff;
-}
-
-#chatAIWrapper {
-  z-index: 10;
-}
-
-/* #back {
-  position: fixed;
-  background-color: black;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  opacity: 0;
-} */
-
-/* #back.animate {
-  animation: fadeInAnimation ease 2s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-} */
 @keyframes fadeInAnimation {
   0% {
     opacity: 1;
@@ -599,4 +494,8 @@ input {
 .glitch::after {
   animation: paths 5s step-end infinite, opacity 5s step-end infinite,
     font 7s step-end infinite, movement 8s step-end infinite;
+}
+
+img {
+  width: 100%;
 }

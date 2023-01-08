@@ -54,13 +54,10 @@
       class="container d-flex flex-column justify-content-center align-items-center height py-4 py-md-5"
       id="chatWrapper"
     >
-      <div
-        class="d-flex flex-column py-3 px-2 px-md-5 w-75 h-75"
-        id="chatBody"
-      >
-        <!-- <div class="lore act1-lore">
+      <div class="d-flex flex-column py-3 px-2 px-md-5 w-75" id="chatBody">
+        <div class="lore act1-lore" id="act1-lore">
           Apeiropolis, the most technologically advance civilisation known from
-          8700 to 8500 B.C. The civilisation managed to harness the power of
+          8700 to 8500 BC The civilisation managed to harness the power of
           technology and created a city that never rests. Everything was powered
           by technology, cars fly, doctors replace parts of a failing human body
           with mechanical parts, buildings tower over each other, neon signs
@@ -97,21 +94,16 @@
           through. However, what lies after this will only be harder...
         </div>
 
-        <div class="lore act2-lore">
+        <div class="lore act2-lore d-none" id="act2-lore">
           Apeiropolis, just like any other city, started out like a normal city.
-          It was only after 8850 B.C where the use of technology started seeing
+          It was only after 8850BC where the use of technology started seeing
           an increase. Architechs started experimenting with new building
           designs. As the population of the city increased, architechs were
           forced to built smaller apartment buildings.
           <br />
           <br />
           Some earlier designs of such apartment is as such:
-          <img
-            src="../public/src/blueprint.png"
-            alt="blueprint"
-            width="783"
-            height="270"
-          />
+          <img src="./src/blueprint.png" alt="blueprint" />
           <br />
           <br />
           <p class="hero glitch layers" data-text="glitch">
@@ -123,7 +115,7 @@
           </p>
         </div>
 
-        <div class="lore act3-lore">
+        <div class="lore act3-lore d-none" id="act3-lore">
           After the Ancients managed to built up a whole new city, there comes a
           point where everyone wants to live forever.
           <br />
@@ -161,9 +153,9 @@
               on much longer.</span
             >
           </p>
-        </div> -->
+        </div>
 
-        <div class="lore act4-lore">
+        <div class="lore act4-lore d-none" id="act4-lore">
           Everything was going fine for the civilisation for hundereds of
           years... until The Great Rupture...
           <br />
@@ -210,5 +202,15 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="./src/main.js"></script>
+    <script>
+      var stage = localStorage.getItem("stage");
+      if (stage >= 2) {
+        document.getElementById("act2-lore").classList.remove("d-none");
+        document.getElementById("act3-lore").classList.remove("d-none");
+      }
+      if (stage >= 3) {
+        document.getElementById("act4-lore").classList.remove("d-none");
+      }
+    </script>
   </body>
 </html>

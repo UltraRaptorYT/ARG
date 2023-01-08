@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
           p.style.color = "green";
           p.textContent = "Correct password!";
           let currentStage = localStorage.getItem("stage");
+          if (currentStage > 2) {
+            window.location.href = "./crossword.html";
+            return;
+          }
           let userid = localStorage.getItem("uid");
           axios({
             method: "post",
@@ -71,6 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
             p.style.color = "green";
             p.textContent = "Correct password!";
             let currentStage = localStorage.getItem("stage");
+            if (currentStage > 2) {
+              window.location.href = "./crossword.html";
+              return;
+            }
             let userid = localStorage.getItem("uid");
             axios({
               method: "post",
