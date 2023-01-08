@@ -1,7 +1,6 @@
 const p = document.createElement("h3");
 
-// const URL = "https://soccargbackend.onrender.com";
-const URL = "http://localhost:8081";
+const URL = "https://soccargbackend.onrender.com";
 
 p.style.marginTop = "20px";
 document.addEventListener("DOMContentLoaded", () => {
