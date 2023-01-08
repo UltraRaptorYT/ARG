@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Radio Canada' rel='stylesheet'>
+
+    <script>
+      let isPlaying = false;
+
+      function playMusic() {
+        if (!isPlaying) {
+          const music = document.getElementById("music");
+
+          if (music) {
+            isPlaying = true;
+            music.play();
+          }
+        }
+      }
+
+    </script>
+
+    <style>
+      body {
+        margin: 0px;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        padding: 24px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        -o-box-sizing: border-box;
+      }
+
+      .content {
+        height: 100%;
+        border: 8px rgb(101, 171, 243) solid;
+        display: flex;
+      }
+
+      .text-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: 'Radio Canada';
+        font-size: 6vh;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .text-title {
+        font-weight: bolder;
+        font-size: 7vh;
+      }
+
+      .text-description {
+        flex: 1;
+      }
+
+      .censor {
+        background-color: black;
+      }
+
+      .video-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .video-container video {
+        margin-top: 15%;
+        flex: 1;
+        max-height: 100vh;
+        max-width: 95%;
+      }
+
+    </style>
+  </head>
+
+  <body onclick="playMusic()">
+    <audio id="music" loop autoplay src="https://files.catbox.moe/uc8l1o.mp3"></audio>
+
+    <div class="container">
+      <div class="content">
+        <div class="text-container">
+          <div class="text-title">
+            oopsie woopsie!
+          </div>
+
+          <div>
+            Uwu We made af<span class="censor">uck</span>y wucky!!
+            A wittle f<span class="censor">uck</span>o boingo! The
+            code monkeys at our HQ are
+            working VEWY HAWD to fix this!
+          </div>
+        </div>
+
+        <div class="video-container">
+          <video autoplay muted loop>
+            <source src="https://files.catbox.moe/qeyf19.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

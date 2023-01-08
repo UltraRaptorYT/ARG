@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <title>Code 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <!-- Link to google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <!-- Link to css -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/code.css" />
+  </head>
+
+  <body>
+    <div id="bg">Act 2</div>
+    <div class="flex height w-full justify-center items-center flex-col">
+      <div class="background p-5 w-3/4 flex flex-col gap-5">
+        <h2 data-text="Passcode" class="text-5xl font-bold">Passcode</h2>
+        <h4 class="text-lg text-center">
+          Find the hidden letters in the house! <br />Click
+          <a href="./ABE.html" class="underline">here</a> to return! or
+          <a
+            target="_blank"
+            href="https://drive.google.com/file/d/1MBEa57vouV5GM-ovh8BnArrWtkvd1grU/view?usp=share_link"
+            class="underline"
+            >here</a
+          >
+          to view the model by yourself [Download SketchUp Viewer]
+        </h4>
+        <div id="password" class="text-center">
+          <div class="col-12 col-md-6 col-lg-4 mx-auto">
+            <input type="text" id="password-input" class="form-control" />
+            <input type="submit" id="password-submit" class="button" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let vh = 0.01 * window.innerHeight;
+      document.documentElement.style.setProperty("--vh", vh + "px");
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./src/code2.js"></script>
+    
+  </body>
+</html>

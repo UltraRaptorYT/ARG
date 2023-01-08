@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Singapore Polytechnic</title>
+  <style>
+    .hide {
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script> -->
+  <!-- <script src="https://unpkg.com/@supabase/supabase-js@2"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="../login/src/login.js" defer></script>
+</head>
+
+<body>
+  <!-- <script>
+    $(document).ready(function () {
+      const form = document.getElementById("login-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const email = formData.get("email");
+        const password = formData.get("password");
+
+
+        var jsonData = `{
+        "email":"${email}",
+        "password":"${password}"
+        }`
+
+      $.ajax({
+        url: "http://localhost:3001/login",
+        type: "POST",
+        data: jsonData,
+        contentType: "application/json",
+        dataType: "json",
+        success: function (results, textStatus, xhr) {
+          if (results != null) {
+            window.location.assign(
+              "http://localtion:3001/wiki.html"
+            );
+          }
+        },
+        error: function (xhr, textStatus, errorThrown) {
+          alert(textStatus)
+        },
+      })
+
+      return false;
+    });
+
+
+
+    })
+
+  </script> -->
+
+
+  <form id="login-form">
+    <label>
+      E-Mail
+      <input type="text" name="email" id="email" placeholder="Email" required />
+    </label>
+    <label>
+      Password
+      <input type="password" name="password" id="password" placeholder="Password" required />
+    </label>
+    <button type="submit">Login</button>
+  </form>
+</body>
+<!-- <script type="module">
+    import supabase from "./src/supabase.js";
+
+    async function signInWithEmail({ email, password }) {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (error) {
+        alert(error.message);
+        console.error(error);
+      } else {
+        alert("Successfully logged in!");
+        console.log(data);
+      }
+    }
+
+    const form = document.getElementById("login-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const email = formData.get("email");
+      const password = formData.get("password");
+
+      signInWithEmail({ email, password });
+    });
+  </script> -->
+
+</html>

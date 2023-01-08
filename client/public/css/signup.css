@@ -1,0 +1,23 @@
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+input {
+  border: 2px solid black;
+  padding: 5px 10px !important;
+  border-radius: 9999px;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 25px;
+}
+
+body {
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: fit-content;
+}
