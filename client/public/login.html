@@ -36,6 +36,7 @@
           any way possible!
         </p>
         <p class="text-center">All the best!</p>
+        <p class="text-center text-red-500" id="err"></p>
         <label>
           E-Mail (IChat)
           <input
@@ -57,9 +58,11 @@
             required
           />
         </label>
-        <div class="flex w-full">
+        <div class="flex w-full flex-col">
           <a href="./signup.html" class="text-sm underline ml-auto"
             >Create Account?</a
+          ><a href="./forget.html" class="text-sm underline ml-auto"
+            >Forgot Password?</a
           >
         </div>
         <button
@@ -82,7 +85,13 @@
         .then((response) => {
           localStorage.setItem("stage", response.data.stage);
           localStorage.setItem("uid", response.data.uid);
-          window.location.href = "./wiki.html";
+          if (response.data.stage == 1) {
+            window.location.href = "./wiki.html";
+          } else if (response.data.stage == 2) {
+            window.location.href = "./ABE.html";
+          } else if (response.data.stage == 3) {
+            window.location.href = "./crossword.html";
+          }
         })
         .catch((error) => {
           alert(
