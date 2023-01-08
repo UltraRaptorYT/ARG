@@ -1,0 +1,21 @@
+body {
+  background-image: url("../src/blackWall.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+#questionNo {
+  white-space: nowrap;
+}
+
+.text-white {
+  color: white;
+}
