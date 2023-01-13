@@ -79,8 +79,9 @@
     import supabase from "./src/supabase.js";
 
     const URL = "https://soccargbackend.onrender.com";
-
     async function signInWithEmail({ email, password }) {
+      console.log("h");
+      const prevURLArr = document.referrer.split("/");
       axios
         .post(`${URL}/login`, { email, password })
         .then((response) => {
@@ -88,6 +89,13 @@
           console.log(response);
           localStorage.setItem("stage", response.data.stage);
           localStorage.setItem("uid", response.data.uid);
+
+          if (
+            localStorage.getItem("stage") == 3 &&
+            prevURLArr[prevURLArr.length - 1].includes("AR")
+          ) {
+            window.location.href = "./AR.html";
+          }
           window.location.href = "./wiki.html";
         })
         .catch((error) => {
@@ -95,9 +103,6 @@
             "Invalid Login Details ~ Contact sp_socclub@sp.edu.sg to reset password"
           );
         })
-        .finally(() => {
-          console.log("hi");
-        });
     }
 
     const form = document.getElementById("login-form");
@@ -106,7 +111,6 @@
       const formData = new FormData(form);
       const email = formData.get("email");
       const password = formData.get("password");
-
       signInWithEmail({ email, password });
     });
   </script>

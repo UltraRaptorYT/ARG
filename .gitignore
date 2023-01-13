@@ -3,3 +3,6 @@ node_modules/
 firebase-debug.log
 *.cache
 client/public/src/ABE.gltf
+*.glb
+*.cache
+.firebase/hosting.Y2xpZW50XHB1YmxpYw.cache

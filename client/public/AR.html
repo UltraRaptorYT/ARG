@@ -88,7 +88,7 @@
     </script>
     <script>
       if (localStorage.getItem("stage") < 3) {
-        window.history.back();
+        window.location.href = "./login.html";
       }
       document.getElementById("passcode").addEventListener("click", () => {
         window.location.href = "./code3.html";
