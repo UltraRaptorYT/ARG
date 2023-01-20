@@ -80,29 +80,31 @@
 
     const URL = "https://soccargbackend.onrender.com";
     async function signInWithEmail({ email, password }) {
-      console.log("h");
       const prevURLArr = document.referrer.split("/");
       axios
         .post(`${URL}/login`, { email, password })
         .then((response) => {
-          console.log(email, password);
-          console.log(response);
           localStorage.setItem("stage", response.data.stage);
           localStorage.setItem("uid", response.data.uid);
-
           if (
-            localStorage.getItem("stage") == 3 &&
-            prevURLArr[prevURLArr.length - 1].includes("AR")
+            response.data.stage >= 3 &&
+            prevURLArr.includes("AR", prevURLArr.length - 2)
           ) {
             window.location.href = "./AR.html";
+          } else if (
+            response.data.stage >= 5 &&
+            prevURLArr.includes("S426hHjbV5YhVNl1a318", prevURLArr.length - 2)
+          ) {
+            window.location.href = "./S426hHjbV5YhVNl1a318.html";
+          } else {
+            window.location.href = "./wiki.html";
           }
-          window.location.href = "./wiki.html";
         })
         .catch((error) => {
           alert(
             "Invalid Login Details ~ Contact sp_socclub@sp.edu.sg to reset password"
           );
-        })
+        });
     }
 
     const form = document.getElementById("login-form");
